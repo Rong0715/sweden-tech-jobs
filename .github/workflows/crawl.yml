@@ -44,8 +44,10 @@ jobs:
         run: python -m jobs.analyze --snapshot data/snapshots/$D --history data/history --out data/analysis/$D
       - name: Commit results to data branch
         run: |
+          # raw ad text never leaves the runner: keep only the crawl logs from raw/
+          mkdir -p data/logs/$D && cp data/raw/$D/coverage.csv data/raw/$D/net_log.jsonl data/logs/$D/ 2>/dev/null || true
+          rm -rf data/raw
           cd data
-          gzip -f raw/$D/*.jsonl
           rm -f snapshots/$D/listings.sqlite.gz; gzip -kf snapshots/$D/listings.sqlite && rm snapshots/$D/listings.sqlite
           git add -A
           git commit -q -m "snapshot $D" || echo "nothing to commit"
@@ -56,6 +58,5 @@ jobs:
           path: |
             data/snapshots/${{ env.D }}
             data/analysis/${{ env.D }}
-            data/raw/${{ env.D }}/coverage.csv
-            data/raw/${{ env.D }}/net_log.jsonl
+            data/logs/${{ env.D }}
           retention-days: 30

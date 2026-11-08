@@ -63,7 +63,11 @@ def _ms_date(ms):
 # ---------------- Greenhouse ----------------
 def greenhouse(net, row):
     slug = row["ats_key"]
-    d = net.get(f"https://boards-api.greenhouse.io/v1/boards/{slug}/jobs", params={"content": "true"})
+    d = None
+    for host in ("boards-api.greenhouse.io", "boards-api.eu.greenhouse.io"):
+        d = net.get(f"https://{host}/v1/boards/{slug}/jobs", params={"content": "true"})
+        if d and d.get("jobs") is not None:
+            break
     out = []
     for j in (d or {}).get("jobs", []):
         locs = [j.get("location", {}).get("name", "")] + [o.get("location") or o.get("name") or "" for o in j.get("offices", [])]

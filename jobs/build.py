@@ -93,6 +93,8 @@ def main():
     ap.add_argument("--companies", default="config/companies.csv")
     ap.add_argument("--ericsson", default=None, help="optional CSV from the Ericsson crawler (read only)")
     ap.add_argument("--out", default=None)
+    ap.add_argument("--keep-text", action="store_true",
+                    help="also store ad text in parquet/sqlite (off by default: the repo holds labels, not other people's text)")
     a = ap.parse_args()
     day = os.path.basename(a.raw.rstrip("/"))
     out = a.out or os.path.join("data", day)
@@ -164,7 +166,9 @@ def main():
     df = df.drop(columns=["_rank", "_len"])
     df["snapshot"] = day
 
-    df.drop(columns=["description"]).to_csv(os.path.join(out, "listings.csv"), index=False)
+    if not a.keep_text:
+        df = df.drop(columns=["description"])
+    df.drop(columns=["description"], errors="ignore").to_csv(os.path.join(out, "listings.csv"), index=False)
     df.to_parquet(os.path.join(out, "listings.parquet"), index=False)
     con = sqlite3.connect(os.path.join(out, "listings.sqlite"))
     df.to_sql("listings", con, if_exists="replace", index=False)

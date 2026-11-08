@@ -16,7 +16,7 @@ TIMEOUT = 30
 # web crawlers does not stop the documented API (it is reported in coverage.csv).
 DOCUMENTED_APIS = {
     "jobsearch.api.jobtechdev.se", "historical.api.jobtechdev.se", "data.jobtechdev.se",
-    "boards-api.greenhouse.io", "api.lever.co", "api.eu.lever.co", "api.ashbyhq.com",
+    "boards-api.greenhouse.io", "boards-api.eu.greenhouse.io", "api.lever.co", "api.eu.lever.co", "api.ashbyhq.com",
     "api.smartrecruiters.com", "apply.workable.com",
 }
 
