@@ -33,6 +33,7 @@ The `data` branch holds aggregated statistics only, one folder per run.
 - `analysis/<date>/demand.csv`: share of engineering ads mentioning each skill, by employer tier, role family and seniority, with Wilson 95% intervals and a tier-weighted index.
 - `analysis/<date>/cooc.csv`, `clusters.csv`: NPMI co-occurrence and Louvain skill communities, with stability across seeds.
 - `analysis/<date>/gap.csv`: entry-level vs senior log odds ratio per skill, with 95% intervals; once for all early-career ads and once for graduate and junior jobs only (thesis projects and internships excluded).
+- `analysis/<date>/robust.csv`: the same shares with an interval that resamples employers rather than ads, how many employers mention each skill, how much comes from the largest one, and the share when no employer counts for more than 10 ads.
 - `analysis/<date>/signals.csv`: share of ads that require Swedish, are EU-only, need security clearance, mention visa sponsorship or are written in English, by tier and level.
 - `trends/trends.csv`, `trend_fit.csv`, `market.csv`: yearly skill shares since 2020 and quasi-binomial logistic slopes with intervals. Years built earlier (2016 to 2019) are kept in `trends/earlier/` as background.
 - `analysis/<date>/platsbanken_bias.csv`: how much of each employer's own board also reaches Platsbanken.
@@ -70,6 +71,7 @@ history monthly (`history.yml`).
 ## Known biases
 
 - Platsbanken under-covers big tech and scaleups; `platsbanken_bias.csv` measures by how much. Some large employers (for example Apple, Meta, IBM, SAP) run career sites that no adapter covers yet and are not in the employer list.
+- A few large employers post many similar ads (Saab, Ericsson); `robust.csv` shows when one employer carries a skill.
 - Recruiters and consultancies repost; recruiter ads are excluded from skill statistics.
 - A skill mentioned is not a skill required, and seniority from text is a heuristic.
 - Learning costs in `skills.py` are judgement inputs to the ranking, not data.

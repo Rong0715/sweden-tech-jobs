@@ -1,4 +1,4 @@
-"""Statistics on the snapshot + the 10-year history, and the learning route.
+"""Statistics on the snapshot + the yearly history, and the learning route.
 
   python -m jobs.analyze --snapshot data/snapshots/<date> --history data/history --out data/analysis/<date>
   python -m jobs.analyze --history data/history --out data/trends        # trends only
@@ -10,6 +10,8 @@ Outputs (CSV unless noted):
   clusters.csv      skill communities (Louvain on the NPMI graph, 20 seeds), with stability
   gap.csv           entry vs senior: log odds ratio per skill with 95% interval
                     (cohort "entry" = all early-career ads, "jobs" = graduate and junior only)
+  robust.csv        demand shares with an employer-resampled interval, employer concentration and a
+                    per-employer cap, for all / target families / top+scaleup / graduate+junior ads
   signals.csv       Swedish requirement, EU-only, clearance, visa and English-ad shares by tier and level
   trends.csv        per skill per year share in Data/IT ads, Wilson interval
   trend_fit.csv     quasi-binomial logistic slope per skill over the fit window, with 95% interval
@@ -95,6 +97,65 @@ def demand(df, M, ids):
         for sid, (k, n, p, lo, hi) in sh.items():
             rows.append(dict(group=name, skill=sid, label=SKILLS[sid]["label"], k=k, n=round(n, 1), share=p, lo=lo, hi=hi))
     return pd.DataFrame(rows)
+
+
+def _company_boot(comp, reps, seed):
+    """Weights for a bootstrap that resamples employers, not ads: ads from one employer are not independent."""
+    codes, uniq = pd.factorize(comp)
+    rng = np.random.default_rng(seed)
+    W = rng.multinomial(len(uniq), np.full(len(uniq), 1 / len(uniq)), size=reps).astype(float)
+    return codes, len(uniq), W
+
+
+def robust(df, M, ids, reps=400, cap=10, seed=7):
+    """Checks on demand shares that the Wilson interval ignores.
+
+    boot_lo/boot_hi: 95% interval from resampling employers (ads from one employer move together).
+    n_companies, top_company, top_share: how many employers mention the skill and how much of the
+    count comes from the single largest one. share_cap: share when each employer counts for at most
+    `cap` ads, so one big poster cannot carry a skill."""
+    groups = [("all", np.ones(len(df), bool)),
+              ("target_families", df.family.isin(classify.TARGET_FAMILIES).values),
+              ("top_scaleup", df.tier.isin(["top", "scaleup"]).values),
+              ("graduate_junior", df.seniority.isin(["graduate", "junior"]).values)]
+    rows = []
+    for name, mask in groups:
+        d, X = df[mask], M[mask].astype(float)
+        if len(d) == 0:
+            continue
+        codes, nc, W = _company_boot(d.company.values, reps, seed)
+        K = np.zeros((nc, X.shape[1])); np.add.at(K, codes, X)
+        N = np.bincount(codes, minlength=nc).astype(float)
+        boot = (W @ K) / (W @ N)[:, None]
+        wcap = np.minimum(1.0, cap / N)[codes]
+        capped = (X * wcap[:, None]).sum(0) / wcap.sum()
+        names = pd.factorize(d.company.values)[1]
+        for j, sid in enumerate(ids):
+            k = int(K[:, j].sum())
+            p, lo, hi = wilson(k, len(d))
+            top = int(K[:, j].argmax()) if k else None
+            rows.append(dict(group=name, skill=sid, label=SKILLS[sid]["label"], k=k, n=len(d), share=p, lo=lo, hi=hi,
+                             boot_lo=float(np.quantile(boot[:, j], .025)), boot_hi=float(np.quantile(boot[:, j], .975)),
+                             n_companies=int((K[:, j] > 0).sum()), top_company=names[top] if k else "",
+                             top_share=float(K[top, j] / k) if k else np.nan, share_cap=float(capped[j]),
+                             small_n=len(d) < 100 or k < 10))
+    return pd.DataFrame(rows)
+
+
+def gap_boot(df, M, ids, levels, reps=400, seed=11):
+    """Employer-resampled 95% interval for the early-career vs senior log odds ratio."""
+    e = df.seniority.isin(levels).values if levels else df.entry.values
+    s = (df.seniority == "senior").values
+    m = e | s
+    d, X, e, s = df[m], M[m].astype(float), e[m], s[m]
+    codes, nc, W = _company_boot(d.company.values, reps, seed)
+    def agg(mask):
+        K = np.zeros((nc, X.shape[1])); np.add.at(K, codes[mask], X[mask])
+        return K, np.bincount(codes[mask], minlength=nc).astype(float)
+    Ke, Ne = agg(e); Ks, Ns = agg(s)
+    ke, ne, ks, ns = W @ Ke, W @ Ne, W @ Ks, W @ Ns
+    lor = np.log(((ke + .5) / (ne[:, None] - ke + .5)) / ((ks + .5) / (ns[:, None] - ks + .5)))
+    return np.quantile(lor, .025, axis=0), np.quantile(lor, .975, axis=0), (Ke > 0).sum(0)
 
 
 def cooc(M, ids, min_count):
@@ -413,8 +474,14 @@ def main():
     cc.to_csv(os.path.join(out, "cooc.csv"), index=False)
     cl, clmeta = clusters(cc, M, ids, df)
     cl.to_csv(os.path.join(out, "clusters.csv"), index=False)
-    gp = pd.concat([gap(df, M, ids), gap(df, M, ids, "jobs", ["graduate", "junior"])], ignore_index=True)
+    parts = []
+    for cohort, levels in [("entry", None), ("jobs", ["graduate", "junior"])]:
+        g = gap(df, M, ids, cohort, levels)
+        g["boot_lo"], g["boot_hi"], g["entry_companies"] = gap_boot(df, M, ids, levels)
+        parts.append(g)
+    gp = pd.concat(parts, ignore_index=True)
     gp.to_csv(os.path.join(out, "gap.csv"), index=False)
+    robust(df, M, ids).to_csv(os.path.join(out, "robust.csv"), index=False)
     signals(df).to_csv(os.path.join(out, "signals.csv"), index=False)
     r = roi(df, M, ids, fit)
     r.to_csv(os.path.join(out, "roi.csv"), index=False)
