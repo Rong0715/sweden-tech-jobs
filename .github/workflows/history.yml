@@ -10,7 +10,7 @@ on:
     - cron: "0 3 2 * *"        # 2nd of each month (the current year's quarterly file changes)
   push:
     branches: [main]
-    paths: ["jobs/history.py", "jobs/jobtech.py", ".github/workflows/history.yml"]
+    paths: ["jobs/history.py", "jobs/jobtech.py", "jobs/skills.py", "jobs/classify.py", ".github/workflows/history.yml"]   # labels changed: relabel the history
 permissions:
   contents: write
 concurrency:

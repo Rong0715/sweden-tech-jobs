@@ -60,6 +60,22 @@ def test_rss():
     assert ok and len(posts) == 2 and posts[0]["in_sweden"] and not posts[1]["in_sweden"], posts
     assert "Kubernetes" in posts[0]["description"]
 
+def test_false_friends():
+    from jobs.skills import extract as ex
+    no = {"Du rapporterar till närmaste chef": "ansible", "Our team is embedded in the product org": "embedded",
+          "Hantering av containers i hamnen": "docker", "SWIFT payments and ISO 20022": "swift",
+          "We build consensus across teams": "distributed", "scalable solutions for customers": "sysdesign",
+          "Inspect rust and corrosion on steel": "rust"}
+    for text, skill in no.items():
+        assert skill not in ex(text), (text, skill)
+    yes = {"Embedded software in C for microcontrollers": "embedded", "Docker and container orchestration": "docker",
+           "iOS developer with Swift": "swift", "Build scalable services in Go": "sysdesign",
+           "Systems programming in Rust and C++": "rust", "Vi arbetar agilt i team": "agile",
+           "Ansible and Chef cookbooks": "ansible"}
+    for text, skill in yes.items():
+        assert skill in ex(text), (text, skill)
+
+
 def test_robots():
     from jobs.robots import Robots
     ua = "sweden-tech-jobs/0.3 (+https://github.com/Rong0715/sweden-tech-jobs)"
