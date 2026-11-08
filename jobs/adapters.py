@@ -379,9 +379,16 @@ def deel(net, row, detail_cap=200):
         jobs = [{"id": m.group(2), "path": m.group(1)} for m in _JOBLINK.finditer(page)]
     if not jobs:          # app-router pages ship the list inside escaped RSC payload strings
         flat = page.replace('\\"', '"').replace("\\/", "/")
-        ids = re.findall(r'job-details/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})', flat)
-        ids += re.findall(r'"id"\s*:\s*"([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})"(?=[^{}]{0,400}"title")', flat)
-        jobs = [{"id": i} for i in ids]
+        uuid = r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
+        hits = [(m.start(), m.group(1)) for m in re.finditer(r'"id"\s*:\s*"(' + uuid + r')"(?=[^{}]{0,400}"title")', flat)]
+        for k, (pos, jid) in enumerate(hits):
+            # the job's own fields sit between its id and the next job's id
+            chunk = flat[pos:hits[k + 1][0] if k + 1 < len(hits) else pos + 3000]
+            t = re.search(r'"title"\s*:\s*"([^"]{1,200})"', chunk)
+            place = _SE_RX.search(chunk)
+            jobs.append({"id": jid, "title": t.group(1) if t else "", "location": place.group(1) if place else ""})
+        if not jobs:
+            jobs = [{"id": i} for i in re.findall(r"job-details/(" + uuid + ")", flat)]
     jobs = list({j["id"]: j for j in jobs}.values())
     if not jobs:
         net.log(kind="no_jobs_found", url=f"https://jobs.deel.com/{slug}", page_bytes=len(page),
