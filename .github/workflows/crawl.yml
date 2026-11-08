@@ -41,7 +41,10 @@ jobs:
           python -m jobs.build --raw data/raw/$D --out data/snapshots/$D
           echo "D=$D" >> $GITHUB_ENV
       - name: Analyse
-        run: python -m jobs.analyze --snapshot data/snapshots/$D --history data/trends --out data/analysis/$D
+        run: |
+          python -m jobs.analyze --snapshot data/snapshots/$D --history data/trends --out data/analysis/$D
+          # links and tagger output for 40 random ads, for a hand check of the tagger (no ad text)
+          python -m jobs.sample --snapshot data/snapshots/$D --n 40
       - name: Commit aggregates to data branch
         run: |
           # Only aggregated statistics and crawl logs are committed. Ad text never leaves the
