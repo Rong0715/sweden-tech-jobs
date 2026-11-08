@@ -235,7 +235,21 @@ def personio(net, row):
 
 
 # ---------------- Workday (public CXS endpoints behind the career site) ----------------
-def workday(net, row, detail_cap=200):
+def _workday_sweden_facet(facets):
+    """Find the facet value that selects Sweden (country or location facet), if the site has one."""
+    stack = [(None, f) for f in facets or []]
+    while stack:
+        param, f = stack.pop()
+        if not isinstance(f, dict):
+            continue
+        param = f.get("facetParameter") or param
+        if str(f.get("descriptor", "")).strip().lower() in ("sweden", "sverige") and f.get("id") and param:
+            return param, f["id"]
+        stack.extend((param, v) for v in f.get("values") or [])
+    return None
+
+
+def workday(net, row, detail_cap=600):
     site_url = row["ats_key"].rstrip("/")
     p = urllib.parse.urlsplit(site_url)
     tenant = p.netloc.split(".")[0]
@@ -244,13 +258,19 @@ def workday(net, row, detail_cap=200):
         return [], False
     site = segs[-1]
     base = f"{p.scheme}://{p.netloc}/wday/cxs/{tenant}/{site}"
-    out, offset, ok, seen, total = [], 0, False, set(), 0
+    first = net.get(f"{base}/jobs", method="POST", body={"appliedFacets": {}, "limit": 1, "offset": 0, "searchText": ""})
+    if first is None:
+        return [], False
+    # Prefer the site's own Sweden facet; a small board is read whole; a big global board
+    # without a country facet falls back to a text search for "Sweden".
+    fac = _workday_sweden_facet(first.get("facets"))
+    applied, text = ({fac[0]: [fac[1]]}, "") if fac else ({}, "" if first.get("total", 0) <= 2000 else "Sweden")
+    out, offset, seen, total = [], 0, set(), 0
     while offset < 2000:
         d = net.get(f"{base}/jobs", method="POST",
-                    body={"appliedFacets": {}, "limit": 20, "offset": offset, "searchText": "Sweden"})
+                    body={"appliedFacets": applied, "limit": 20, "offset": offset, "searchText": text})
         if d is None:
             break
-        ok = True
         total = total or d.get("total", 0)      # Workday only reports the total on the first page
         items = d.get("jobPostings", [])
         for j in items:
@@ -259,21 +279,21 @@ def workday(net, row, detail_cap=200):
                 continue
             seen.add(path)
             loc = j.get("locationsText", "")
-            desc, posted, country = "", j.get("postedOn", ""), ""
-            if in_sweden(loc) or "location" in loc.lower():
+            desc, posted, country = "", j.get("postedOn", ""), "Sweden" if fac else ""
+            if fac or in_sweden(loc) or "location" in loc.lower():
                 if len(out) < detail_cap:
                     det = net.get(base + path)
                     info = (det or {}).get("jobPostingInfo", {}) or {}
                     desc = strip_html(info.get("jobDescription"))
                     loc = info.get("location") or loc
-                    country = (info.get("country") or {}).get("descriptor", "")
+                    country = (info.get("country") or {}).get("descriptor", "") or country
                     posted = info.get("startDate") or posted
             out.append(posting("workday", row, path.rsplit("_", 1)[-1] or path, j.get("title"), loc,
                                f"{p.scheme}://{p.netloc}/{site}{path}", posted, desc, country=country))
         offset += 20
         if not items or offset >= total:
             break
-    return out, ok
+    return out, True
 
 
 # ---------------- Eightfold ----------------
