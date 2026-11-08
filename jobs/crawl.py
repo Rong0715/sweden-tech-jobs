@@ -27,7 +27,10 @@ def crawl_company(net, row):
     key = (row.get("ats_key") or "").strip()
     if ats in ("", "unknown", "custom", "jobylon", "varbi", "reachmee", "successfactors", "icims", "oracle"):
         if row.get("careers_url") and ats not in ("",):
-            fn, row = adapters.html, dict(row, ats_key=key or row["careers_url"])
+            # the generic fallback reads the careers page itself; ats_key is often a bare
+            # host or a vendor id there, not a URL
+            start = key if key.startswith(("http://", "https://")) else row["careers_url"]
+            fn, row = adapters.html, dict(row, ats_key=start)
             ats = "html"
         else:
             return [], dict(status="skipped_no_adapter", ats=ats)

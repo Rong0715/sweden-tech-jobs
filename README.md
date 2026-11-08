@@ -60,7 +60,7 @@ history monthly (`history.yml`).
 
 ## Data ethics
 
-- **robots.txt is respected for every host.** Disallowed URLs are not fetched; each refusal is logged and shows up in `coverage.csv`.
+- **robots.txt is respected for every host,** matched as RFC 9309 specifies (longest rule wins; an unreachable robots.txt means stay away). Disallowed URLs are not fetched; each refusal is logged with the rule that caused it in `logs/<date>/net_log.jsonl`.
 - At most one request per second per host, one identifiable client name with a link to this repository, retries with back-off.
 - Only public job listings: no sign-ins, no forms, no bot-check workarounds. LinkedIn is not touched.
 - **Ad text is never stored in the repository or in public artifacts.** It is read in memory to compute labels and then dropped; only labels and aggregated counts are kept. Row-level listings without text are kept as a 14-day workflow artifact for debugging.

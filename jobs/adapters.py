@@ -426,6 +426,18 @@ def _next_data_jobs(page):
 _JOBPATH = re.compile(r"/(jobs?|positions?|vacanc|lediga|jobb|career/job|careers/job|opening|annons)", re.I)
 
 
+def _html_location(body, row):
+    """A careers page rarely marks up its location. Take the first Swedish place named near
+    the top of the ad; failing that, a Swedish employer's own site (.se domain, or a public
+    body) is taken to advertise Swedish jobs, using the sites listed for it."""
+    m = _SE_RX.search(body[:3000])
+    if m:
+        return m.group(1)
+    if (row.get("domain", "").endswith(".se") or row.get("tier") == "public") and row.get("sweden_sites"):
+        return row["sweden_sites"].split(";")[0]
+    return ""
+
+
 def html(net, row, cap=60):
     url = row.get("ats_key") or row.get("careers_url")
     page = net.get(url, as_json=False) if url else None
@@ -446,7 +458,8 @@ def html(net, row, cap=60):
             continue
         m = re.search(r"<h1[^>]*>(.*?)</h1>", det, re.S) or re.search(r"<title>(.*?)</title>", det, re.S)
         body = strip_html(re.sub(r"(?is)<(script|style|nav|footer|header).*?</\1>", " ", det))
-        out.append(posting("html", row, u, strip_html(m.group(1)) if m else "", "", u, "", body[:20000]))
+        out.append(posting("html", row, u, strip_html(m.group(1)) if m else "", _html_location(body, row), u, "",
+                           body[:20000]))
     return out, True
 
 

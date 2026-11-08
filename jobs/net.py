@@ -3,9 +3,10 @@ import json
 import threading
 import time
 import urllib.parse
-import urllib.robotparser
 
 import requests
+
+from .robots import Robots
 
 UA = "sweden-tech-jobs/0.3 (+https://github.com/Rong0715/sweden-tech-jobs)"
 MIN_INTERVAL = 1.0          # seconds between requests to the same host
@@ -41,22 +42,21 @@ class Net:
         p = urllib.parse.urlsplit(url)
         host = p.netloc.lower()
         if host not in self.robots:
-            rp = urllib.robotparser.RobotFileParser()
             try:
                 self._wait(host)
                 r = self.s.get(f"{p.scheme}://{host}/robots.txt", timeout=TIMEOUT)
-                if r.status_code in (401, 403):
-                    rp.disallow_all = True  # same convention as urllib.robotparser
+                if r.status_code >= 500:
+                    rp = Robots(disallow_all=True)  # unreachable: assume disallow (RFC 9309 2.3.1.4)
                 elif r.status_code >= 400:
-                    rp.parse([])            # no robots.txt -> allowed
+                    rp = Robots()               # any 4xx, 401/403 included, means "unavailable": allowed (RFC 9309 2.3.1.3)
                 else:
-                    rp.parse(r.text.splitlines())
+                    rp = Robots(r.text)
             except requests.RequestException:
-                rp.parse([])
+                rp = Robots(disallow_all=True)
             self.robots[host] = rp
-        ok = self.robots[host].can_fetch(UA, url)
+        ok, rule = self.robots[host].match(UA, url)
         if not ok:
-            self.log(kind="robots_disallow", url=url)
+            self.log(kind="robots_disallow", url=url, rule=rule)
         return ok
 
     def get(self, url, *, params=None, as_json=True, method="GET", body=None, tries=4, headers=None):

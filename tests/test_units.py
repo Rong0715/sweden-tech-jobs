@@ -60,6 +60,21 @@ def test_rss():
     assert ok and len(posts) == 2 and posts[0]["in_sweden"] and not posts[1]["in_sweden"], posts
     assert "Kubernetes" in posts[0]["description"]
 
+def test_robots():
+    from jobs.robots import Robots
+    ua = "sweden-tech-jobs/0.3 (+https://github.com/Rong0715/sweden-tech-jobs)"
+    r = Robots("User-agent: *\nDisallow: /\nAllow: /api/pcsx\n")
+    assert r.can_fetch(ua, "https://x.com/api/pcsx/search?domain=a")
+    assert not r.can_fetch(ua, "https://x.com/careers")
+    r = Robots("User-agent: *\nAllow: /jobs\nDisallow: /jobs/apply\n")
+    assert r.can_fetch(ua, "https://x.com/jobs/123") and not r.can_fetch(ua, "https://x.com/jobs/apply/1")
+    r = Robots("User-agent: sweden-tech-jobs\nDisallow: /\n\nUser-agent: *\nAllow: /\n")
+    assert not r.can_fetch(ua, "https://x.com/a")
+    r = Robots("User-agent: *\nDisallow: /*.pdf$\nDisallow:\n")
+    assert not r.can_fetch(ua, "https://x.com/a/b.pdf") and r.can_fetch(ua, "https://x.com/a/b.pdfx")
+    assert Robots("").can_fetch(ua, "https://x.com/") and not Robots(disallow_all=True).can_fetch(ua, "https://x.com/")
+
+
 if __name__ == "__main__":
     for k, v in list(globals().items()):
         if k.startswith("test_"):
