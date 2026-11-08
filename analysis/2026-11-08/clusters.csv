@@ -1,0 +1,63 @@
+cluster,skill,label,prevalence,stability,ads_with_2plus,top_families,entry_share
+0,cicd,CI/CD,0.16387249114521843,0.75,1058,"{""platform"": 0.33, ""software"": 0.22, ""ml_ai"": 0.1}",0.06994328922495274
+0,security,Security (IAM/OWASP/crypto),0.13388429752066117,0.77,1058,"{""platform"": 0.33, ""software"": 0.22, ""ml_ai"": 0.1}",0.06994328922495274
+0,ansible,Ansible/config mgmt,0.11877213695395514,0.77,1058,"{""platform"": 0.33, ""software"": 0.22, ""ml_ai"": 0.1}",0.06994328922495274
+0,git,Git,0.11050767414403778,0.77,1058,"{""platform"": 0.33, ""software"": 0.22, ""ml_ai"": 0.1}",0.06994328922495274
+0,devops,DevOps/SRE,0.1038961038961039,0.74,1058,"{""platform"": 0.33, ""software"": 0.22, ""ml_ai"": 0.1}",0.06994328922495274
+0,linux,Linux,0.09421487603305785,0.57,1058,"{""platform"": 0.33, ""software"": 0.22, ""ml_ai"": 0.1}",0.06994328922495274
+0,k8s,Kubernetes,0.09374262101534829,0.74,1058,"{""platform"": 0.33, ""software"": 0.22, ""ml_ai"": 0.1}",0.06994328922495274
+0,docker,Docker/containers,0.08429752066115702,0.74,1058,"{""platform"": 0.33, ""software"": 0.22, ""ml_ai"": 0.1}",0.06994328922495274
+0,terraform,Terraform/IaC,0.06776859504132231,0.77,1058,"{""platform"": 0.33, ""software"": 0.22, ""ml_ai"": 0.1}",0.06994328922495274
+0,observ,Observability (Prometheus/Grafana/OTel),0.050059031877213694,0.77,1058,"{""platform"": 0.33, ""software"": 0.22, ""ml_ai"": 0.1}",0.06994328922495274
+0,networking,Networking (TCP/IP),0.03494687131050767,0.57,1058,"{""platform"": 0.33, ""software"": 0.22, ""ml_ai"": 0.1}",0.06994328922495274
+0,bash,Shell/Bash,0.03093270365997639,0.77,1058,"{""platform"": 0.33, ""software"": 0.22, ""ml_ai"": 0.1}",0.06994328922495274
+0,postgres,PostgreSQL,0.028807556080283354,0.36,1058,"{""platform"": 0.33, ""software"": 0.22, ""ml_ai"": 0.1}",0.06994328922495274
+0,kafka,Kafka,0.023376623376623377,0.1,1058,"{""platform"": 0.33, ""software"": 0.22, ""ml_ai"": 0.1}",0.06994328922495274
+0,go,Go,0.020543093270366,0.77,1058,"{""platform"": 0.33, ""software"": 0.22, ""ml_ai"": 0.1}",0.06994328922495274
+0,swift,Swift/iOS,0.015112160566706022,0.75,1058,"{""platform"": 0.33, ""software"": 0.22, ""ml_ai"": 0.1}",0.06994328922495274
+0,mq,Message queues (RabbitMQ/PubSub/SQS),0.012042502951593861,0.44,1058,"{""platform"": 0.33, ""software"": 0.22, ""ml_ai"": 0.1}",0.06994328922495274
+0,mongodb,MongoDB,0.010625737898465172,0.52,1058,"{""platform"": 0.33, ""software"": 0.22, ""ml_ai"": 0.1}",0.06994328922495274
+0,mysql,MySQL/MariaDB,0.009681227863046045,0.36,1058,"{""platform"": 0.33, ""software"": 0.22, ""ml_ai"": 0.1}",0.06994328922495274
+0,elastic,Elasticsearch/OpenSearch,0.0089728453364817,0.77,1058,"{""platform"": 0.33, ""software"": 0.22, ""ml_ai"": 0.1}",0.06994328922495274
+0,cassandra,Cassandra/Bigtable/Dynamo,0.0089728453364817,0.75,1058,"{""platform"": 0.33, ""software"": 0.22, ""ml_ai"": 0.1}",0.06994328922495274
+0,redis,Redis,0.008028335301062573,0.31,1058,"{""platform"": 0.33, ""software"": 0.22, ""ml_ai"": 0.1}",0.06994328922495274
+1,sysdesign,System design/scalability,0.15489964580873672,0.6,892,"{""ml_ai"": 0.27, ""software"": 0.21, ""platform"": 0.19}",0.08295964125560538
+1,azure,Azure,0.13105076741440377,0.89,892,"{""ml_ai"": 0.27, ""software"": 0.21, ""platform"": 0.19}",0.08295964125560538
+1,sql,SQL,0.09327036599763873,0.91,892,"{""ml_ai"": 0.27, ""software"": 0.21, ""platform"": 0.19}",0.08295964125560538
+1,aws,AWS,0.089728453364817,0.49,892,"{""ml_ai"": 0.27, ""software"": 0.21, ""platform"": 0.19}",0.08295964125560538
+1,llm,LLM/GenAI,0.06989374262101535,0.92,892,"{""ml_ai"": 0.27, ""software"": 0.21, ""platform"": 0.19}",0.08295964125560538
+1,ml,Machine learning,0.06587957497048406,0.92,892,"{""ml_ai"": 0.27, ""software"": 0.21, ""platform"": 0.19}",0.08295964125560538
+1,gcp,GCP,0.06162927981109799,0.91,892,"{""ml_ai"": 0.27, ""software"": 0.21, ""platform"": 0.19}",0.08295964125560538
+1,aitools,AI coding tools,0.045100354191263285,0.88,892,"{""ml_ai"": 0.27, ""software"": 0.21, ""platform"": 0.19}",0.08295964125560538
+1,agents,AI agents/tool use,0.04321133412042503,0.92,892,"{""ml_ai"": 0.27, ""software"": 0.21, ""platform"": 0.19}",0.08295964125560538
+1,stats,Statistics/analytics,0.03896103896103896,0.92,892,"{""ml_ai"": 0.27, ""software"": 0.21, ""platform"": 0.19}",0.08295964125560538
+1,dwh,Data warehouse (BigQuery/Snowflake/Redshift),0.026210153482880756,0.91,892,"{""ml_ai"": 0.27, ""software"": 0.21, ""platform"": 0.19}",0.08295964125560538
+1,spark,Spark,0.025974025974025976,0.91,892,"{""ml_ai"": 0.27, ""software"": 0.21, ""platform"": 0.19}",0.08295964125560538
+1,airflow,Airflow/dbt/orchestration,0.025737898465171192,0.91,892,"{""ml_ai"": 0.27, ""software"": 0.21, ""platform"": 0.19}",0.08295964125560538
+1,rag,RAG/vector search,0.024557260920897283,0.92,892,"{""ml_ai"": 0.27, ""software"": 0.21, ""platform"": 0.19}",0.08295964125560538
+1,mlops,MLOps/model serving,0.01487603305785124,0.92,892,"{""ml_ai"": 0.27, ""software"": 0.21, ""platform"": 0.19}",0.08295964125560538
+1,cv,Computer vision,0.009445100354191263,0.92,892,"{""ml_ai"": 0.27, ""software"": 0.21, ""platform"": 0.19}",0.08295964125560538
+2,agile,Agile/Scrum,0.0833530106257379,0.91,683,"{""software"": 0.39, ""fullstack"": 0.11, ""platform"": 0.1}",0.07759882869692533
+2,java,Java,0.08288075560802834,0.97,683,"{""software"": 0.39, ""fullstack"": 0.11, ""platform"": 0.1}",0.07759882869692533
+2,csharp,C#/.NET,0.08170011806375442,0.97,683,"{""software"": 0.39, ""fullstack"": 0.11, ""platform"": 0.1}",0.07759882869692533
+2,tdd,Testing/TDD,0.06186540731995278,0.91,683,"{""software"": 0.39, ""fullstack"": 0.11, ""platform"": 0.1}",0.07759882869692533
+2,typescript,TypeScript,0.05761511216056671,0.97,683,"{""software"": 0.39, ""fullstack"": 0.11, ""platform"": 0.1}",0.07759882869692533
+2,javascript,JavaScript,0.05761511216056671,0.97,683,"{""software"": 0.39, ""fullstack"": 0.11, ""platform"": 0.1}",0.07759882869692533
+2,react,React,0.05619834710743802,0.97,683,"{""software"": 0.39, ""fullstack"": 0.11, ""platform"": 0.1}",0.07759882869692533
+2,microservices,Microservices,0.03565525383707202,0.97,683,"{""software"": 0.39, ""fullstack"": 0.11, ""platform"": 0.1}",0.07759882869692533
+2,rest,REST/HTTP APIs,0.03400236127508855,0.97,683,"{""software"": 0.39, ""fullstack"": 0.11, ""platform"": 0.1}",0.07759882869692533
+2,distributed,Distributed systems,0.02857142857142857,0.97,683,"{""software"": 0.39, ""fullstack"": 0.11, ""platform"": 0.1}",0.07759882869692533
+2,angular,Angular,0.021487603305785124,0.97,683,"{""software"": 0.39, ""fullstack"": 0.11, ""platform"": 0.1}",0.07759882869692533
+2,spring,Spring/Spring Boot,0.019834710743801654,0.97,683,"{""software"": 0.39, ""fullstack"": 0.11, ""platform"": 0.1}",0.07759882869692533
+2,kotlin,Kotlin,0.015584415584415584,0.93,683,"{""software"": 0.39, ""fullstack"": 0.11, ""platform"": 0.1}",0.07759882869692533
+2,oop,OOP/design patterns,0.013223140495867768,0.86,683,"{""software"": 0.39, ""fullstack"": 0.11, ""platform"": 0.1}",0.07759882869692533
+2,vue,Vue,0.012042502951593861,0.97,683,"{""software"": 0.39, ""fullstack"": 0.11, ""platform"": 0.1}",0.07759882869692533
+2,graphql,GraphQL,0.0089728453364817,0.97,683,"{""software"": 0.39, ""fullstack"": 0.11, ""platform"": 0.1}",0.07759882869692533
+3,python,Python,0.17638724911452183,0.91,448,"{""software"": 0.34, ""embedded"": 0.27, ""ml_ai"": 0.16}",0.14732142857142858
+3,embedded,Embedded/firmware,0.10909090909090909,0.95,448,"{""software"": 0.34, ""embedded"": 0.27, ""ml_ai"": 0.16}",0.14732142857142858
+3,cpp,C++,0.07390791027154664,0.95,448,"{""software"": 0.34, ""embedded"": 0.27, ""ml_ai"": 0.16}",0.14732142857142858
+3,c,C,0.048170011806375444,0.95,448,"{""software"": 0.34, ""embedded"": 0.27, ""ml_ai"": 0.16}",0.14732142857142858
+3,dsa,Algorithms/data structures,0.02668240850059032,0.95,448,"{""software"": 0.34, ""embedded"": 0.27, ""ml_ai"": 0.16}",0.14732142857142858
+3,matlab,MATLAB,0.022904368358913813,0.95,448,"{""software"": 0.34, ""embedded"": 0.27, ""ml_ai"": 0.16}",0.14732142857142858
+3,dl,Deep learning (PyTorch/TF),0.014167650531286895,0.91,448,"{""software"": 0.34, ""embedded"": 0.27, ""ml_ai"": 0.16}",0.14732142857142858
+3,os,OS/kernel/low-level,0.012987012987012988,0.85,448,"{""software"": 0.34, ""embedded"": 0.27, ""ml_ai"": 0.16}",0.14732142857142858

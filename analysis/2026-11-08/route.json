@@ -1,0 +1,291 @@
+[
+ {
+  "step": 1,
+  "skill": "git",
+  "label": "Git",
+  "layer": 1,
+  "roi": 1.067,
+  "needs": [],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 5
+ },
+ {
+  "step": 2,
+  "skill": "linux",
+  "label": "Linux",
+  "layer": 1,
+  "roi": 0.727,
+  "needs": [],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 20
+ },
+ {
+  "step": 3,
+  "skill": "cicd",
+  "label": "CI/CD",
+  "layer": 2,
+  "roi": 0.674,
+  "needs": [
+   "git"
+  ],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 15
+ },
+ {
+  "step": 4,
+  "skill": "agile",
+  "label": "Agile/Scrum",
+  "layer": 1,
+  "roi": 0.663,
+  "needs": [],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 5
+ },
+ {
+  "step": 5,
+  "skill": "python",
+  "label": "Python",
+  "layer": 1,
+  "roi": 0.515,
+  "needs": [],
+  "site": "algo",
+  "level": 0.0,
+  "cost_h": 60
+ },
+ {
+  "step": 6,
+  "skill": "aitools",
+  "label": "AI coding tools",
+  "layer": 1,
+  "roi": 0.477,
+  "needs": [],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 5
+ },
+ {
+  "step": 7,
+  "skill": "docker",
+  "label": "Docker/containers",
+  "layer": 2,
+  "roi": 0.357,
+  "needs": [
+   "linux"
+  ],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 15
+ },
+ {
+  "step": 8,
+  "skill": "llm",
+  "label": "LLM/GenAI",
+  "layer": 2,
+  "roi": 0.347,
+  "needs": [
+   "python"
+  ],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 30
+ },
+ {
+  "step": 9,
+  "skill": "ansible",
+  "label": "Ansible/config mgmt",
+  "layer": 2,
+  "roi": 0.318,
+  "needs": [
+   "linux"
+  ],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 15
+ },
+ {
+  "step": 10,
+  "skill": "tdd",
+  "label": "Testing/TDD",
+  "layer": 1,
+  "roi": 0.265,
+  "needs": [],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 15
+ },
+ {
+  "step": 11,
+  "skill": "agents",
+  "label": "AI agents/tool use",
+  "layer": 3,
+  "roi": 0.246,
+  "needs": [
+   "llm"
+  ],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 20
+ },
+ {
+  "step": 12,
+  "skill": "sql",
+  "label": "SQL",
+  "layer": 1,
+  "roi": 0.234,
+  "needs": [],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 40
+ },
+ {
+  "step": 13,
+  "skill": "ml",
+  "label": "Machine learning",
+  "layer": 2,
+  "roi": 0.224,
+  "needs": [
+   "python"
+  ],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 80
+ },
+ {
+  "step": 14,
+  "skill": "devops",
+  "label": "DevOps/SRE",
+  "layer": 3,
+  "roi": 0.195,
+  "needs": [
+   "linux",
+   "cicd"
+  ],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 30
+ },
+ {
+  "step": 15,
+  "skill": "stats",
+  "label": "Statistics/analytics",
+  "layer": 1,
+  "roi": 0.162,
+  "needs": [],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 40
+ },
+ {
+  "step": 16,
+  "skill": "c",
+  "label": "C",
+  "layer": 1,
+  "roi": 0.161,
+  "needs": [],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 80
+ },
+ {
+  "step": 17,
+  "skill": "observ",
+  "label": "Observability (Prometheus/Grafana/OTel)",
+  "layer": 2,
+  "roi": 0.155,
+  "needs": [
+   "linux"
+  ],
+  "site": "sd",
+  "level": 0.0,
+  "cost_h": 15
+ },
+ {
+  "step": 18,
+  "skill": "rest",
+  "label": "REST/HTTP APIs",
+  "layer": 1,
+  "roi": 0.149,
+  "needs": [],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 15
+ },
+ {
+  "step": 19,
+  "skill": "security",
+  "label": "Security (IAM/OWASP/crypto)",
+  "layer": 1,
+  "roi": 0.148,
+  "needs": [],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 40
+ },
+ {
+  "step": 20,
+  "skill": "azure",
+  "label": "Azure",
+  "layer": 2,
+  "roi": 0.14,
+  "needs": [
+   "linux"
+  ],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 60
+ },
+ {
+  "step": 21,
+  "skill": "aws",
+  "label": "AWS",
+  "layer": 2,
+  "roi": 0.131,
+  "needs": [
+   "linux"
+  ],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 60
+ },
+ {
+  "step": 22,
+  "skill": "terraform",
+  "label": "Terraform/IaC",
+  "layer": 3,
+  "roi": 0.158,
+  "needs": [
+   "aws"
+  ],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 25
+ },
+ {
+  "step": 23,
+  "skill": "distributed",
+  "label": "Distributed systems",
+  "layer": 1,
+  "roi": 0.084,
+  "needs": [],
+  "site": "ds",
+  "level": 0.0,
+  "cost_h": 100
+ },
+ {
+  "step": 24,
+  "skill": "sysdesign",
+  "label": "System design/scalability",
+  "layer": 2,
+  "roi": 0.254,
+  "needs": [
+   "distributed"
+  ],
+  "site": "sd",
+  "level": 0.0,
+  "cost_h": 60
+ }
+]
