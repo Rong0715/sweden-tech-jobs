@@ -8,9 +8,6 @@ on:
         default: "2016-2026"
   schedule:
     - cron: "0 3 2 * *"        # 2nd of each month (the current year's quarterly file changes)
-  push:
-    branches: [main]
-    paths: ["jobs/history.py", "jobs/jobtech.py", "jobs/skills.py", "jobs/classify.py", ".github/workflows/history.yml"]
 permissions:
   contents: write
 concurrency:
@@ -26,7 +23,9 @@ jobs:
         with: { python-version: "3.12" }
       - run: pip install -r requirements.txt
       - name: Build history tables from JobTech bulk files
-        run: python -m jobs.history --years "${{ inputs.years || '2016-2026' }}" --out out/history --force
+        run: |
+          python -m jobs.history --years "${{ inputs.years || '2016-2026' }}" --out out/history --force
+          python -m jobs.analyze --history out/history --out out/trends
       - name: Commit to data branch
         run: |
           git config user.name "crawler-bot"; git config user.email "crawler-bot@users.noreply.github.com"
@@ -35,11 +34,12 @@ jobs:
           else
             git worktree add --detach data && (cd data && git checkout --orphan data && git rm -rf . -q || true)
           fi
-          mkdir -p data/history && cp out/history/* data/history/
+          # commit per-year aggregates only; the per-ad feature tables stay in the artifact
+          mkdir -p data/trends && cp out/trends/*.csv out/history/lines_per_file.json data/trends/
           cd data && git add -A && (git commit -q -m "history $(date -u +%F)" || echo "nothing to commit")
           for i in 1 2 3 4; do git push -q origin data && break; git pull -q --rebase origin data; sleep $((i*5)); done
       - uses: actions/upload-artifact@v4
         with:
-          name: history
-          path: out/history
-          retention-days: 30
+          name: history-features
+          path: out/history/*.parquet
+          retention-days: 14

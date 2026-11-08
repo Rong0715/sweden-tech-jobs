@@ -7,18 +7,9 @@ import urllib.robotparser
 
 import requests
 
-UA = "sweden-tech-jobs-research/0.2 (personal labour-market study; contact via GitHub repo)"
+UA = "sweden-tech-jobs/0.3 (+https://github.com/Rong0715/sweden-tech-jobs)"
 MIN_INTERVAL = 1.0          # seconds between requests to the same host
 TIMEOUT = 30
-
-# Hosts whose job feeds are documented public APIs meant for programmatic reading.
-# robots.txt is still read and logged for them, but a robots "Disallow" written for
-# web crawlers does not stop the documented API (it is reported in coverage.csv).
-DOCUMENTED_APIS = {
-    "jobsearch.api.jobtechdev.se", "historical.api.jobtechdev.se", "data.jobtechdev.se",
-    "boards-api.greenhouse.io", "boards-api.eu.greenhouse.io", "api.lever.co", "api.eu.lever.co", "api.ashbyhq.com",
-    "api.smartrecruiters.com", "apply.workable.com",
-}
 
 
 class Net:
@@ -54,17 +45,16 @@ class Net:
             try:
                 self._wait(host)
                 r = self.s.get(f"{p.scheme}://{host}/robots.txt", timeout=TIMEOUT)
-                if r.status_code >= 400:
-                    rp.parse([])          # no robots.txt -> allowed
+                if r.status_code in (401, 403):
+                    rp.disallow_all = True  # same convention as urllib.robotparser
+                elif r.status_code >= 400:
+                    rp.parse([])            # no robots.txt -> allowed
                 else:
                     rp.parse(r.text.splitlines())
             except requests.RequestException:
                 rp.parse([])
             self.robots[host] = rp
         ok = self.robots[host].can_fetch(UA, url)
-        if not ok and host in DOCUMENTED_APIS:
-            self.log(kind="robots_disallow_documented_api", url=url)
-            return True
         if not ok:
             self.log(kind="robots_disallow", url=url)
         return ok
@@ -73,6 +63,7 @@ class Net:
         if not self.allowed(url):
             return None
         host = urllib.parse.urlsplit(url).netloc.lower()
+        err = ""
         for i in range(tries):
             self._wait(host)
             try:

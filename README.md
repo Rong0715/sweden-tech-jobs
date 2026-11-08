@@ -1,56 +1,74 @@
 # sweden-tech-jobs
 
 A rerunnable dataset of tech job listings in Sweden, built to answer one question:
-**which skills does the Swedish market pay for, how is that changing, and in what order
-should a new graduate learn them?**
+**which skills does the Swedish market ask for, how is that changing, and in what order is
+it worth learning them?**
 
-## Sources
+Each weekly run collects the live listings from Arbetsförmedlingen's open data and from
+about 200 employers' own career boards, labels every ad with skills, seniority and role
+family, and publishes aggregated statistics: skill demand with confidence intervals, skill
+clusters, the entry-level vs senior gap, ten-year trends and a dependency-ordered learning map.
 
-| Source | What | How |
+## How it works
+
+| Step | Module | What it does |
 |---|---|---|
-| JobTech JobSearch API (Arbetsförmedlingen, open data) | every live ad in the *Data/IT* and *Tekniskt arbete* occupation fields | `jobs/jobtech.py`, time windows split so each stays under the API's ~2,100-result cap |
-| JobTech historical bulk files | every ad published 2016 to 2026 Q3 (yearly JSONL zips, ~9 GB) | `jobs/history.py`, streamed; only features are kept, not the text |
-| Company career boards | ~250 employers (big tech offices, scaleups, banks, industrials, consultancies, public sector) | `jobs/adapters.py`, one adapter per ATS: Teamtailor (RSS), Greenhouse, Lever, Ashby, Workable, SmartRecruiters, Recruitee, Personio, Workday, Eightfold, Deel, plus a cautious generic HTML fallback |
+| Live listings | `jobs/jobtech.py` | JobTech JobSearch API (Arbetsförmedlingen, open data), occupation fields *Data/IT* and *Tekniskt arbete*. Date windows are split recursively so each query stays under the API's result cap. |
+| Employer boards | `jobs/adapters.py` | One adapter per applicant-tracking system, not per company: Teamtailor (RSS), Greenhouse, Lever, Ashby, Workable, SmartRecruiters, Recruitee, Personio, Workday, Eightfold, Deel, plus a cautious HTML fallback. The employer list is `config/companies.csv`. |
+| Board discovery | `jobs/detect.py` | Fills in the ATS for employers marked `unknown` from careers-page fingerprints and public board APIs. |
+| Build | `jobs/build.py` | Normalises sources into one table, matches employers to tiers, labels each ad, and de-duplicates the same job posted on Platsbanken and on the employer's own board. |
+| History | `jobs/history.py` | Streams JobTech's yearly bulk files (2016 onwards) and keeps per-ad features only. |
+| Analysis | `jobs/analyze.py` | The statistics below. |
 
-The employer list is `config/companies.csv` (tier, ATS, board key, evidence URL).
-`python -m jobs.detect` fills in boards for rows marked `unknown`.
+Labels are rules, so every decision can be audited:
 
-## Politeness
+- `jobs/skills.py`: about 75 skills as regular expressions. Ambiguous words (Go, C, R) only count next to another technical term.
+- `jobs/classify.py`: seniority (thesis, intern, graduate, junior, mid, senior; from the title, then years of experience), role family, Swedish-language requirement, EU-only, security-clearance and visa signals, ad language.
+- `tests/test_units.py` pins the tricky cases; `tests/make_synth.py` builds synthetic data with planted clusters and a planted trend as an end-to-end check.
 
-One client name, 1 request per second per host, robots.txt read for every host
-(refusals logged in `net_log.jsonl`; documented public job APIs are logged but read),
-no sign-ins, no forms, no bot-check workarounds, LinkedIn not touched.
-`coverage.csv` lists every company with what was fetched or why it was skipped.
+## Outputs
 
-## Pipeline
+The `data` branch holds aggregated statistics only, one folder per run.
+
+- `analysis/<date>/demand.csv`: share of engineering ads mentioning each skill, by employer tier, role family and seniority, with Wilson 95% intervals and a tier-weighted index.
+- `analysis/<date>/cooc.csv`, `clusters.csv`: NPMI co-occurrence and Louvain skill communities, with stability across seeds.
+- `analysis/<date>/gap.csv`: entry-level vs senior log odds ratio per skill, with 95% intervals.
+- `trends/trends.csv`, `trend_fit.csv`, `market.csv`: yearly skill shares since 2016 and quasi-binomial logistic slopes with intervals.
+- `analysis/<date>/platsbanken_bias.csv`: how much of each employer's own board also reaches Platsbanken.
+- `analysis/<date>/roi.csv`, `route.json`: skills ranked by demand, growth and learning cost, with bootstrap rank intervals, in prerequisite order.
+- `logs/<date>/coverage.csv`: every employer, what was fetched or why it was skipped.
+
+## Running it
 
 ```
-python -m jobs.crawl   --out data/raw/<date>                      # snapshot
+pip install -r requirements.txt
+python tests/test_units.py
+
+python -m jobs.crawl   --out data/raw/<date>
 python -m jobs.build   --raw data/raw/<date> --out data/snapshots/<date>
-python -m jobs.history --years 2016-2026 --out data/history       # once a month is plenty
-python -m jobs.analyze --snapshot data/snapshots/<date> --history data/history --out data/analysis/<date>
+python -m jobs.history --years 2016-2026 --out data/history
+python -m jobs.analyze --history data/history --out data/trends
+python -m jobs.analyze --snapshot data/snapshots/<date> --history data/trends \
+                       --out data/analysis/<date> --profile config/profile.example.json
 ```
 
-GitHub Actions (`.github/workflows/crawl.yml`) runs this every Monday and on pushes to
-`main`, and commits results to the `data` branch.
+`--profile` is optional. It gives a learner's current level per skill (0 to 1), so the
+ranking favours what is still missing; `config/profile.example.json` shows the format.
 
-## Labels (rules, auditable)
+GitHub Actions runs the crawl every Monday (`.github/workflows/crawl.yml`) and rebuilds the
+history monthly (`history.yml`).
 
-- `jobs/skills.py`: ~75 skills as regexes; ambiguous words (Go, C, R) only count next to another tech term.
-- `jobs/classify.py`: seniority (thesis / intern / graduate / junior / mid / senior, from title, then years of experience), role family, Swedish requirement, EU-only / clearance / visa signals, ad language.
-- `tests/test_units.py` pins the tricky cases; `tests/make_synth.py` builds synthetic data with planted clusters and a planted trend for an end-to-end check.
+## Data ethics
 
-## Analysis outputs (`data/analysis/<date>/`)
-
-`demand.csv` (share of engineering ads per skill, by tier / family / level, Wilson 95% CI, plus a tier-weighted index),
-`cooc.csv` and `clusters.csv` (NPMI co-occurrence, Louvain communities with seed stability),
-`gap.csv` (entry vs senior log-odds with CI), `trends.csv` / `trend_fit.csv` / `market.csv`
-(10-year shares, quasi-binomial logistic slopes), `platsbanken_bias.csv` (how much of each
-company's own board also reaches Platsbanken), `roi.csv` (bootstrap rank intervals) and `route.json`.
+- **robots.txt is respected for every host.** Disallowed URLs are not fetched; each refusal is logged and shows up in `coverage.csv`.
+- At most one request per second per host, one identifiable client name with a link to this repository, retries with back-off.
+- Only public job listings: no sign-ins, no forms, no bot-check workarounds. LinkedIn is not touched.
+- **Ad text is never stored in the repository or in public artifacts.** It is read in memory to compute labels and then dropped; only labels and aggregated counts are kept. Row-level listings without text are kept as a 14-day workflow artifact for debugging.
+- JobTech data is open data published by Arbetsförmedlingen.
 
 ## Known biases
 
-- Platsbanken under-covers big tech and scaleups; `platsbanken_bias.csv` measures by how much.
+- Platsbanken under-covers big tech and scaleups; `platsbanken_bias.csv` measures by how much. Some large employers (for example Apple, Meta, IBM, SAP) run career sites that no adapter covers yet and are not in the employer list.
 - Recruiters and consultancies repost; recruiter ads are excluded from skill statistics.
-- A skill mentioned is not a skill required; seniority from text is a heuristic.
-- Learning cost and current level per skill in `skills.py` are judgement inputs to the ROI model, not data.
+- A skill mentioned is not a skill required, and seniority from text is a heuristic.
+- Learning costs in `skills.py` are judgement inputs to the ranking, not data.

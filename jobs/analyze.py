@@ -1,6 +1,7 @@
 """Statistics on the snapshot + the 10-year history, and the learning route.
 
-  python -m jobs.analyze --snapshot data/<date> --history data/history --out data/analysis/<date>
+  python -m jobs.analyze --snapshot data/snapshots/<date> --history data/history --out data/analysis/<date>
+  python -m jobs.analyze --history data/history --out data/trends        # trends only
 
 Outputs (CSV unless noted):
   demand.csv        share of engineering ads that mention each skill, overall, per tier, per role
@@ -186,10 +187,19 @@ def logit_fit(years, k, n):
     return beta[1], se, phi
 
 
-def history(hist_dir, fit_from):
+def history_tables(hist_dir):
+    """Per-year skill counts and market figures from the history feature tables.
+
+    Reads ads_<year>.parquet when present (built by jobs.history); otherwise falls back to
+    already aggregated trends.csv / market.csv in the same folder, which is what the public
+    data branch carries.
+    """
     files = sorted(glob.glob(os.path.join(hist_dir, "ads_*.parquet")))
     if not files:
-        return None, None, None
+        t, m = os.path.join(hist_dir, "trends.csv"), os.path.join(hist_dir, "market.csv")
+        if os.path.exists(t):
+            return pd.read_csv(t), (pd.read_csv(m) if os.path.exists(m) else None)
+        return None, None
     h = pd.concat([pd.read_parquet(f) for f in files], ignore_index=True)
     h = h[h.year.notna()]
     h["year"] = h.year.astype(int)
@@ -205,17 +215,6 @@ def history(hist_dir, fit_from):
             p, lo, hi = wilson(k, n)
             trows.append(dict(year=y, skill=sid, k=k, n=n, share=p, lo=lo, hi=hi))
     tr = pd.DataFrame(trows)
-    frows = []
-    for sid, g in tr[tr.year >= fit_from].groupby("skill"):
-        g = g[g.n > 0]
-        if len(g) < 3 or g.k.sum() < 20:
-            continue
-        b, se, phi = logit_fit(g.year, g.k, g.n)
-        first, last = g.iloc[0], g.iloc[-1]
-        frows.append(dict(skill=sid, label=SKILLS[sid]["label"], slope=b, lo=b - Z * se, hi=b + Z * se, overdispersion=phi,
-                          share_first=first.share, share_last=last.share, year_first=int(first.year), year_last=int(last.year),
-                          k_last=int(last.k), growth_3y=math.exp(3 * b)))
-    fit = pd.DataFrame(frows)
     mrows = []
     ai_cols = [ids.index(s) for s in AI_SET]
     for y in years:
@@ -230,7 +229,22 @@ def history(hist_dir, fit_from):
                           llm_mention=float(M[m, ids.index("llm")].mean()) if m.any() else np.nan,
                           median_skills=float(np.median(M[m].sum(1))) if m.any() else np.nan,
                           employers=itm.employer.nunique()))
-    return tr, fit, pd.DataFrame(mrows)
+    return tr, pd.DataFrame(mrows)
+
+
+def fit_trends(tr, fit_from):
+    """Quasi-binomial logistic slope per skill over the years from fit_from on."""
+    frows = []
+    for sid, g in tr[tr.year >= fit_from].groupby("skill"):
+        g = g[g.n > 0]
+        if len(g) < 3 or g.k.sum() < 20:
+            continue
+        b, se, phi = logit_fit(g.year, g.k, g.n)
+        first, last = g.iloc[0], g.iloc[-1]
+        frows.append(dict(skill=sid, label=SKILLS[sid]["label"], slope=b, lo=b - Z * se, hi=b + Z * se, overdispersion=phi,
+                          share_first=first.share, share_last=last.share, year_first=int(first.year), year_last=int(last.year),
+                          k_last=int(last.k), growth_3y=math.exp(3 * b)))
+    return pd.DataFrame(frows)
 
 
 def platsbanken_bias(df_all):
@@ -246,6 +260,20 @@ def platsbanken_bias(df_all):
         rows.append(dict(company=comp, tier=g.tier.iloc[0], ats_postings=int(ats.sum()), also_on_platsbanken=int(both.sum()),
                          platsbanken_only=int(only_pb.sum()), share_on_platsbanken=both.sum() / ats.sum()))
     return pd.DataFrame(rows)
+
+
+LEVEL = {}   # learner's current level per skill, 0..1; filled from --profile
+
+
+def load_profile(path):
+    if not path:
+        return {}
+    with open(path, encoding="utf-8") as f:
+        lv = json.load(f).get("levels", {})
+    unknown = set(lv) - set(SKILLS)
+    if unknown:
+        raise SystemExit(f"profile has unknown skill ids: {sorted(unknown)}")
+    return {k: min(1.0, max(0.0, float(v))) for k, v in lv.items()}
 
 
 def roi(df, M, ids, fit, boots=300, seed=0):
@@ -267,8 +295,8 @@ def roi(df, M, ids, fit, boots=300, seed=0):
         out = {}
         for s in ids:
             d = SKILLS[s]
-            unlock = 0.3 * sum(val[t] * (1 - SKILLS[t]["rong"]) for t in dependents[s])
-            gapv = 1 - d["rong"]
+            unlock = 0.3 * sum(val[t] * (1 - LEVEL.get(t, 0.0)) for t in dependents[s])
+            gapv = 1 - LEVEL.get(s, 0.0)
             out[s] = ((val[s] + unlock) * gapv) / (d["cost"] * gapv + 10) * 100
         return out, D, E
 
@@ -285,7 +313,7 @@ def roi(df, M, ids, fit, boots=300, seed=0):
     for j, s in enumerate(ids):
         rk = np.array(ranks[s])
         rows.append(dict(skill=s, label=SKILLS[s]["label"], roi=base[s], demand_target=D[j], demand_entry=E[j],
-                         growth_3y=growth.get(s, np.nan), rong_level=SKILLS[s]["rong"], cost_h=SKILLS[s]["cost"],
+                         growth_3y=growth.get(s, np.nan), level=LEVEL.get(s, 0.0), cost_h=SKILLS[s]["cost"],
                          rank_median=float(np.median(rk)), rank_p05=float(np.percentile(rk, 5)),
                          rank_p95=float(np.percentile(rk, 95)), site=SKILLS[s]["site"], prereq="|".join(SKILLS[s]["pre"])))
     return pd.DataFrame(rows).sort_values("roi", ascending=False)
@@ -294,12 +322,12 @@ def roi(df, M, ids, fit, boots=300, seed=0):
 def route(r, top=22):
     """Topological order of the top-ROI skills plus their prerequisites, highest ROI first among ready ones."""
     roi_of = dict(zip(r.skill, r.roi))
-    want = set(r[r.rong_level < 0.9].head(top).skill)
+    want = set(r[r.level < 0.9].head(top).skill)
     stack = list(want)
     while stack:
         s = stack.pop()
         for p in SKILLS[s]["pre"]:
-            if p not in want and SKILLS[p]["rong"] < 0.9:
+            if p not in want and LEVEL.get(p, 0.0) < 0.9:
                 want.add(p)
                 stack.append(p)
     indeg = {s: sum(p in want for p in SKILLS[s]["pre"]) for s in want}
@@ -317,18 +345,34 @@ def route(r, top=22):
                     heapq.heappush(heap, (-roi_of[t], t))
     return [dict(step=i + 1, skill=s, label=SKILLS[s]["label"], layer=depth[s], roi=round(roi_of[s], 3),
                  needs=[p for p in SKILLS[s]["pre"] if p in want], site=SKILLS[s]["site"],
-                 rong_level=SKILLS[s]["rong"], cost_h=SKILLS[s]["cost"]) for i, s in enumerate(order)]
+                 level=LEVEL.get(s, 0.0), cost_h=SKILLS[s]["cost"]) for i, s in enumerate(order)]
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--snapshot", required=True)
+    ap.add_argument("--snapshot", default=None, help="snapshot folder from jobs.build; omit to compute trends only")
     ap.add_argument("--history", default="data/history")
     ap.add_argument("--out", default=None)
     ap.add_argument("--fit-from", type=int, default=2020)
+    ap.add_argument("--profile", default=None,
+                    help="JSON with a learner's current level per skill (see config/profile.example.json); "
+                         "without it every skill counts as not yet learned")
     a = ap.parse_args()
+    LEVEL.update(load_profile(a.profile))
+    if not a.snapshot and not a.out:
+        ap.error("--out is required without --snapshot")
     out = a.out or os.path.join("data", "analysis", os.path.basename(a.snapshot.rstrip("/")))
     os.makedirs(out, exist_ok=True)
+    tr, mk = history_tables(a.history)
+    fit = fit_trends(tr, a.fit_from) if tr is not None else None
+    if tr is not None:
+        tr.to_csv(os.path.join(out, "trends.csv"), index=False)
+        fit.to_csv(os.path.join(out, "trend_fit.csv"), index=False)
+        if mk is not None:
+            mk.to_csv(os.path.join(out, "market.csv"), index=False)
+    if not a.snapshot:
+        print(f"trends for {tr.year.nunique() if tr is not None else 0} years written to {out}")
+        return
     df_all = pd.read_parquet(os.path.join(a.snapshot, "listings.parquet"))
     pb = platsbanken_bias(df_all)
     pb.to_csv(os.path.join(out, "platsbanken_bias.csv"), index=False)
@@ -343,11 +387,6 @@ def main():
     cl.to_csv(os.path.join(out, "clusters.csv"), index=False)
     gp = gap(df, M, ids)
     gp.to_csv(os.path.join(out, "gap.csv"), index=False)
-    tr, fit, mk = history(a.history, a.fit_from)
-    if tr is not None:
-        tr.to_csv(os.path.join(out, "trends.csv"), index=False)
-        fit.to_csv(os.path.join(out, "trend_fit.csv"), index=False)
-        mk.to_csv(os.path.join(out, "market.csv"), index=False)
     r = roi(df, M, ids, fit)
     r.to_csv(os.path.join(out, "roi.csv"), index=False)
     rt = route(r)

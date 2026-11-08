@@ -38,25 +38,25 @@ jobs:
         run: |
           D=$(date -u +%F)
           python -m jobs.crawl --out data/raw/$D ${{ inputs.only && format('--only {0}', inputs.only) || '' }}
-          python -m jobs.build --raw data/raw/$D --out data/snapshots/$D --ericsson data/ericsson.csv
+          python -m jobs.build --raw data/raw/$D --out data/snapshots/$D
           echo "D=$D" >> $GITHUB_ENV
       - name: Analyse
-        run: python -m jobs.analyze --snapshot data/snapshots/$D --history data/history --out data/analysis/$D
-      - name: Commit results to data branch
+        run: python -m jobs.analyze --snapshot data/snapshots/$D --history data/trends --out data/analysis/$D
+      - name: Commit aggregates to data branch
         run: |
-          # raw ad text never leaves the runner: keep only the crawl logs from raw/
+          # Only aggregated statistics and crawl logs are committed. Ad text never leaves the
+          # runner; row-level listings (no text) go to a short-lived workflow artifact.
           mkdir -p data/logs/$D && cp data/raw/$D/coverage.csv data/raw/$D/net_log.jsonl data/logs/$D/ 2>/dev/null || true
-          rm -rf data/raw
+          cp data/snapshots/$D/summary.json data/logs/$D/snapshot_summary.json
+          mv data/snapshots "$RUNNER_TEMP/snapshots" && rm -rf data/raw
           cd data
-          rm -f snapshots/$D/listings.sqlite.gz; gzip -kf snapshots/$D/listings.sqlite && rm snapshots/$D/listings.sqlite
           git add -A
           git commit -q -m "snapshot $D" || echo "nothing to commit"
           for i in 1 2 3 4; do git push -q origin data && break; git pull -q --rebase origin data; sleep $((i*5)); done
       - uses: actions/upload-artifact@v4
         with:
-          name: snapshot-${{ env.D }}
+          name: listings-${{ env.D }}
           path: |
-            data/snapshots/${{ env.D }}
-            data/analysis/${{ env.D }}
-            data/logs/${{ env.D }}
-          retention-days: 30
+            ${{ runner.temp }}/snapshots/${{ env.D }}/listings.parquet
+            ${{ runner.temp }}/snapshots/${{ env.D }}/summary.json
+          retention-days: 14

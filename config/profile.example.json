@@ -1,0 +1,12 @@
+{
+ "name": "example: CS graduate with Python and Java",
+ "levels": {
+  "python": 0.8,
+  "java": 0.6,
+  "sql": 0.4,
+  "git": 0.6,
+  "linux": 0.4,
+  "dsa": 0.6,
+  "oop": 0.6
+ }
+}
