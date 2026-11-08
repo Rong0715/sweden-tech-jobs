@@ -8,6 +8,9 @@ on:
         default: "2016-2026"
   schedule:
     - cron: "0 3 2 * *"        # 2nd of each month (the current year's quarterly file changes)
+  push:
+    branches: [main]
+    paths: ["jobs/history.py", "jobs/jobtech.py", ".github/workflows/history.yml"]
 permissions:
   contents: write
 concurrency:
