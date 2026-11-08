@@ -276,7 +276,48 @@ def workday(net, row, detail_cap=200):
 
 
 # ---------------- Eightfold ----------------
+def _ts_date(ts):
+    try:
+        ts = int(ts)
+        return _ms_date(ts if ts > 10 ** 11 else ts * 1000)
+    except (TypeError, ValueError):
+        return ""
+
+
+def eightfold_pcsx(net, row, detail_cap=200):
+    """Newer Eightfold career sites (e.g. jobs.ericsson.com): /api/pcsx/search, 10 per page."""
+    host = row["ats_key"].replace("https://", "").strip("/")
+    domain = row.get("domain", "")
+    out, start, ok, count = [], 0, False, None
+    while start < 2000:
+        d = net.get(f"https://{host}/api/pcsx/search",
+                    params={"domain": domain, "query": "", "location": "Sweden", "start": start})
+        data = (d or {}).get("data") or {}
+        pos = data.get("positions") or []
+        if d is None:
+            break
+        ok = True
+        count = data.get("count", count)
+        for p in pos:
+            det = {}
+            if len(out) < detail_cap:
+                det = (net.get(f"https://{host}/api/pcsx/position_details",
+                               params={"position_id": p["id"], "domain": domain, "hl": "en"}) or {}).get("data") or {}
+            out.append(posting("eightfold", row, p["id"], det.get("name") or p.get("name", ""),
+                               "; ".join(det.get("locations") or p.get("locations") or []),
+                               det.get("publicUrl") or f"https://{host}/careers/job/{p['id']}",
+                               _ts_date(det.get("postedTs") or p.get("postedTs")), strip_html(det.get("jobDescription", "")),
+                               det.get("department") or p.get("department", ""), "", det.get("workLocationOption", "")))
+        start += len(pos)
+        if not pos or (count is not None and start >= count):
+            break
+    return out, ok
+
+
 def eightfold(net, row, detail_cap=200):
+    out, ok = eightfold_pcsx(net, row, detail_cap)
+    if ok and out:
+        return out, ok
     host = row["ats_key"].replace("https://", "").strip("/")
     domain = row.get("domain", "")
     out, start, ok = [], 0, False
