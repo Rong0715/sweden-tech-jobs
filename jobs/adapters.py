@@ -244,13 +244,14 @@ def workday(net, row, detail_cap=200):
         return [], False
     site = segs[-1]
     base = f"{p.scheme}://{p.netloc}/wday/cxs/{tenant}/{site}"
-    out, offset, ok, seen = [], 0, False, set()
+    out, offset, ok, seen, total = [], 0, False, set(), 0
     while offset < 2000:
         d = net.get(f"{base}/jobs", method="POST",
                     body={"appliedFacets": {}, "limit": 20, "offset": offset, "searchText": "Sweden"})
         if d is None:
             break
         ok = True
+        total = total or d.get("total", 0)      # Workday only reports the total on the first page
         items = d.get("jobPostings", [])
         for j in items:
             path = j.get("externalPath", "")
@@ -270,7 +271,7 @@ def workday(net, row, detail_cap=200):
             out.append(posting("workday", row, path.rsplit("_", 1)[-1] or path, j.get("title"), loc,
                                f"{p.scheme}://{p.netloc}/{site}{path}", posted, desc, country=country))
         offset += 20
-        if not items or offset >= d.get("total", 0):
+        if not items or offset >= total:
             break
     return out, ok
 
@@ -354,9 +355,17 @@ def deel(net, row, detail_cap=200):
         return [], False
     out = []
     jobs = _next_data_jobs(page)
-    if jobs is None:      # fall back to links + detail pages
+    if not jobs:          # fall back to links + detail pages
         jobs = [{"id": m.group(2), "path": m.group(1)} for m in _JOBLINK.finditer(page)]
-        jobs = list({j["id"]: j for j in jobs}.values())
+    if not jobs:          # app-router pages ship the list inside escaped RSC payload strings
+        flat = page.replace('\\"', '"').replace("\\/", "/")
+        ids = re.findall(r'job-details/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})', flat)
+        ids += re.findall(r'"id"\s*:\s*"([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})"(?=[^{}]{0,400}"title")', flat)
+        jobs = [{"id": i} for i in ids]
+    jobs = list({j["id"]: j for j in jobs}.values())
+    if not jobs:
+        net.log(kind="no_jobs_found", url=f"https://jobs.deel.com/{slug}", page_bytes=len(page),
+                next_data="__NEXT_DATA__" in page, rsc="__next_f" in page)
     for j in jobs[:detail_cap]:
         jid = j.get("id")
         url = f"https://jobs.deel.com/{slug}/job-details/{jid}/overview"
@@ -373,7 +382,11 @@ def deel(net, row, detail_cap=200):
                 m = re.search(r"<h1[^>]*>(.*?)</h1>", det, re.S)
                 title = title or (strip_html(m.group(1)) if m else "")
                 desc = strip_html(re.sub(r"(?is)<(script|style).*?</\1>", " ", det))[:20000]
-        out.append(posting("deel", row, jid, title, loc if isinstance(loc, str) else json.dumps(loc), url, j.get("posted", ""), desc))
+        loc = loc if isinstance(loc, str) else json.dumps(loc)
+        if not in_sweden(loc):          # location often only in the rendered text
+            m = _SE_RX.search(desc[:3000])
+            loc = loc or (m.group(1) if m else "")
+        out.append(posting("deel", row, jid, title, loc, url, j.get("posted", ""), desc))
     return out, True
 
 
