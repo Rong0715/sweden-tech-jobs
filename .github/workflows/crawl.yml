@@ -1,0 +1,61 @@
+name: crawl
+on:
+  workflow_dispatch:
+    inputs:
+      only:
+        description: "Run only one crawl part (jobtech | ats), empty = both"
+        type: string
+        default: ""
+  schedule:
+    - cron: "0 5 * * 1"        # Mondays 05:00 UTC
+  push:
+    branches: [main]
+    paths: ["jobs/**", "config/**", ".github/workflows/crawl.yml"]
+permissions:
+  contents: write
+concurrency:
+  group: crawl
+  cancel-in-progress: false
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -r requirements.txt
+      - run: python tests/test_units.py
+      - name: Check out data branch
+        run: |
+          git config user.name "crawler-bot"; git config user.email "crawler-bot@users.noreply.github.com"
+          if git ls-remote --exit-code origin data >/dev/null 2>&1; then
+            git fetch origin data --depth=1 && git worktree add data origin/data && (cd data && git checkout -B data)
+          else
+            git worktree add --detach data && (cd data && git checkout --orphan data && git rm -rf . -q || true)
+          fi
+      - name: Crawl snapshot
+        run: |
+          D=$(date -u +%F)
+          python -m jobs.crawl --out data/raw/$D ${{ inputs.only && format('--only {0}', inputs.only) || '' }}
+          python -m jobs.build --raw data/raw/$D --out data/snapshots/$D --ericsson data/ericsson.csv
+          echo "D=$D" >> $GITHUB_ENV
+      - name: Analyse
+        run: python -m jobs.analyze --snapshot data/snapshots/$D --history data/history --out data/analysis/$D
+      - name: Commit results to data branch
+        run: |
+          cd data
+          gzip -f raw/$D/*.jsonl
+          rm -f snapshots/$D/listings.sqlite.gz; gzip -kf snapshots/$D/listings.sqlite && rm snapshots/$D/listings.sqlite
+          git add -A
+          git commit -q -m "snapshot $D" || echo "nothing to commit"
+          for i in 1 2 3 4; do git push -q origin data && break; git pull -q --rebase origin data; sleep $((i*5)); done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: snapshot-${{ env.D }}
+          path: |
+            data/snapshots/${{ env.D }}
+            data/analysis/${{ env.D }}
+            data/raw/${{ env.D }}/coverage.csv
+            data/raw/${{ env.D }}/net_log.jsonl
+          retention-days: 30

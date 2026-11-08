@@ -1,0 +1,45 @@
+name: history
+on:
+  workflow_dispatch:
+    inputs:
+      years:
+        description: "Years to rebuild"
+        type: string
+        default: "2016-2026"
+  schedule:
+    - cron: "0 3 2 * *"        # 2nd of each month (the current year's quarterly file changes)
+  push:
+    branches: [main]
+    paths: ["jobs/history.py", "jobs/jobtech.py", "jobs/skills.py", "jobs/classify.py", ".github/workflows/history.yml"]
+permissions:
+  contents: write
+concurrency:
+  group: history
+  cancel-in-progress: false
+jobs:
+  history:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -r requirements.txt
+      - name: Build history tables from JobTech bulk files
+        run: python -m jobs.history --years "${{ inputs.years || '2016-2026' }}" --out out/history --force
+      - name: Commit to data branch
+        run: |
+          git config user.name "crawler-bot"; git config user.email "crawler-bot@users.noreply.github.com"
+          if git ls-remote --exit-code origin data >/dev/null 2>&1; then
+            git fetch origin data --depth=1 && git worktree add data origin/data && (cd data && git checkout -B data)
+          else
+            git worktree add --detach data && (cd data && git checkout --orphan data && git rm -rf . -q || true)
+          fi
+          mkdir -p data/history && cp out/history/* data/history/
+          cd data && git add -A && (git commit -q -m "history $(date -u +%F)" || echo "nothing to commit")
+          for i in 1 2 3 4; do git push -q origin data && break; git pull -q --rebase origin data; sleep $((i*5)); done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: history
+          path: out/history
+          retention-days: 30

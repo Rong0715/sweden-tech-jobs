@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:tt="https://teamtailor.com/locations"><channel><title>Jobs</title>
+<item><title>Platform Engineer</title><description>&lt;p&gt;We run Kubernetes on GCP.&lt;/p&gt;</description><pubDate>Mon, 02 Nov 2026 10:00:00 +0100</pubDate><link>https://x.teamtailor.com/jobs/1-platform</link><guid>https://x.teamtailor.com/jobs/1-platform</guid><remoteStatus>hybrid</remoteStatus><tt:department>Engineering</tt:department><tt:locations><tt:location><tt:name>HQ</tt:name><tt:city>Stockholm</tt:city><tt:country>Sweden</tt:country></tt:location></tt:locations></item>
+<item><title>Sales Lead</title><description>Sell</description><pubDate>Mon, 02 Nov 2026 10:00:00 +0100</pubDate><link>https://x.teamtailor.com/jobs/2</link><guid>https://x.teamtailor.com/jobs/2</guid><tt:locations><tt:location><tt:city>Oslo</tt:city><tt:country>Norway</tt:country></tt:location></tt:locations></item>
+</channel></rss>
