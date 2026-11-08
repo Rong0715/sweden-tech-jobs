@@ -1,64 +1,64 @@
 cluster,skill,label,prevalence,stability,ads_with_2plus,top_families,entry_share
-0,cicd,CI/CD,0.15823817292006526,0.81,1081,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07215541165587419
-0,security,Security (IAM/OWASP/crypto),0.1282626427406199,0.79,1081,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07215541165587419
-0,git,Git,0.10909461663947798,0.79,1081,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07215541165587419
-0,devops,DevOps/SRE,0.10195758564437195,0.84,1081,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07215541165587419
-0,k8s,Kubernetes,0.09237357259380098,0.73,1081,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07215541165587419
-0,linux,Linux,0.08931484502446982,0.79,1081,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07215541165587419
-0,docker,Docker/containers,0.07096247960848287,0.73,1081,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07215541165587419
-0,terraform,Terraform/IaC,0.06810766721044045,0.84,1081,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07215541165587419
-0,observ,Observability (Prometheus/Grafana/OTel),0.05261011419249592,0.84,1081,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07215541165587419
-0,networking,Networking (TCP/IP),0.03384991843393149,0.79,1081,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07215541165587419
-0,bash,Shell/Bash,0.02997553017944535,0.79,1081,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07215541165587419
-0,ansible,Ansible/config mgmt,0.02569331158238173,0.79,1081,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07215541165587419
-0,go,Go,0.020799347471451877,0.84,1081,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07215541165587419
-0,swift,Swift/iOS,0.01468189233278956,0.81,1081,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07215541165587419
-0,rust,Rust,0.008564437194127243,0.48,1081,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07215541165587419
-0,elastic,Elasticsearch/OpenSearch,0.008156606851549755,0.84,1081,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07215541165587419
-0,cassandra,Cassandra/Bigtable/Dynamo,0.007748776508972268,0.81,1081,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07215541165587419
-1,python,Python,0.17536704730831973,0.85,995,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14271356783919598
-1,embedded,Embedded/firmware,0.08849918433931485,0.84,995,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14271356783919598
-1,llm,LLM/GenAI,0.07606035889070147,0.84,995,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14271356783919598
-1,cpp,C++,0.07565252854812399,0.84,995,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14271356783919598
-1,ml,Machine learning,0.07218597063621533,0.84,995,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14271356783919598
-1,stats,Statistics/analytics,0.056484502446982054,0.84,995,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14271356783919598
-1,agents,AI agents/tool use,0.05281402936378467,0.84,995,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14271356783919598
-1,aitools,AI coding tools,0.049143556280587274,0.84,995,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14271356783919598
-1,c,C,0.04812398042414356,0.84,995,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14271356783919598
-1,dsa,Algorithms/data structures,0.029771615008156605,0.84,995,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14271356783919598
-1,matlab,MATLAB,0.024469820554649267,0.84,995,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14271356783919598
-1,rag,RAG/vector search,0.02406199021207178,0.84,995,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14271356783919598
-1,dl,Deep learning (PyTorch/TF),0.016109298531810767,0.85,995,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14271356783919598
-1,mlops,MLOps/model serving,0.014274061990212071,0.84,995,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14271356783919598
-1,os,OS/kernel/low-level,0.013866231647634585,0.84,995,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14271356783919598
-1,5g,Telecom (5G/RAN),0.012438825448613376,0.84,995,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14271356783919598
-1,cv,Computer vision,0.00999184339314845,0.84,995,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14271356783919598
-2,agile,Agile/Scrum,0.1388662316476346,1.0,807,"{""software"": 0.39, ""platform"": 0.11, ""fullstack"": 0.1}",0.07558859975216853
-2,java,Java,0.07769168026101142,1.0,807,"{""software"": 0.39, ""platform"": 0.11, ""fullstack"": 0.1}",0.07558859975216853
-2,csharp,C#/.NET,0.07585644371941272,1.0,807,"{""software"": 0.39, ""platform"": 0.11, ""fullstack"": 0.1}",0.07558859975216853
-2,tdd,Testing/TDD,0.05872756933115824,1.0,807,"{""software"": 0.39, ""platform"": 0.11, ""fullstack"": 0.1}",0.07558859975216853
-2,react,React,0.05831973898858075,1.0,807,"{""software"": 0.39, ""platform"": 0.11, ""fullstack"": 0.1}",0.07558859975216853
-2,typescript,TypeScript,0.05791190864600326,1.0,807,"{""software"": 0.39, ""platform"": 0.11, ""fullstack"": 0.1}",0.07558859975216853
-2,javascript,JavaScript,0.05546492659053834,1.0,807,"{""software"": 0.39, ""platform"": 0.11, ""fullstack"": 0.1}",0.07558859975216853
-2,microservices,Microservices,0.0316068515497553,1.0,807,"{""software"": 0.39, ""platform"": 0.11, ""fullstack"": 0.1}",0.07558859975216853
-2,rest,REST/HTTP APIs,0.030587275693311582,1.0,807,"{""software"": 0.39, ""platform"": 0.11, ""fullstack"": 0.1}",0.07558859975216853
-2,distributed,Distributed systems,0.026508972267536703,1.0,807,"{""software"": 0.39, ""platform"": 0.11, ""fullstack"": 0.1}",0.07558859975216853
-2,angular,Angular,0.01957585644371941,1.0,807,"{""software"": 0.39, ""platform"": 0.11, ""fullstack"": 0.1}",0.07558859975216853
-2,spring,Spring/Spring Boot,0.019168026101141926,1.0,807,"{""software"": 0.39, ""platform"": 0.11, ""fullstack"": 0.1}",0.07558859975216853
-2,kotlin,Kotlin,0.015905383360522024,1.0,807,"{""software"": 0.39, ""platform"": 0.11, ""fullstack"": 0.1}",0.07558859975216853
-2,oop,OOP/design patterns,0.012234910277324634,1.0,807,"{""software"": 0.39, ""platform"": 0.11, ""fullstack"": 0.1}",0.07558859975216853
-2,vue,Vue,0.012234910277324634,1.0,807,"{""software"": 0.39, ""platform"": 0.11, ""fullstack"": 0.1}",0.07558859975216853
-2,graphql,GraphQL,0.008156606851549755,1.0,807,"{""software"": 0.39, ""platform"": 0.11, ""fullstack"": 0.1}",0.07558859975216853
-3,azure,Azure,0.12581566068515498,0.79,682,"{""software"": 0.22, ""platform"": 0.22, ""data"": 0.19}",0.0469208211143695
-3,sql,SQL,0.08951876019575856,0.88,682,"{""software"": 0.22, ""platform"": 0.22, ""data"": 0.19}",0.0469208211143695
-3,aws,AWS,0.08890701468189233,0.83,682,"{""software"": 0.22, ""platform"": 0.22, ""data"": 0.19}",0.0469208211143695
-3,sysdesign,System design/scalability,0.08727569331158239,0.82,682,"{""software"": 0.22, ""platform"": 0.22, ""data"": 0.19}",0.0469208211143695
-3,gcp,GCP,0.0636215334420881,0.86,682,"{""software"": 0.22, ""platform"": 0.22, ""data"": 0.19}",0.0469208211143695
-3,dwh,Data warehouse (BigQuery/Snowflake/Redshift),0.0283442088091354,0.88,682,"{""software"": 0.22, ""platform"": 0.22, ""data"": 0.19}",0.0469208211143695
-3,spark,Spark,0.025897226753670472,0.88,682,"{""software"": 0.22, ""platform"": 0.22, ""data"": 0.19}",0.0469208211143695
-3,airflow,Airflow/dbt/orchestration,0.024469820554649267,0.88,682,"{""software"": 0.22, ""platform"": 0.22, ""data"": 0.19}",0.0469208211143695
-3,kafka,Kafka,0.02059543230016313,0.8,682,"{""software"": 0.22, ""platform"": 0.22, ""data"": 0.19}",0.0469208211143695
-3,mq,Message queues (RabbitMQ/PubSub/SQS),0.011827079934747145,0.84,682,"{""software"": 0.22, ""platform"": 0.22, ""data"": 0.19}",0.0469208211143695
-4,postgres,PostgreSQL,0.027528548123980423,1.0,46,"{""platform"": 0.35, ""software"": 0.26, ""ml_ai"": 0.15}",0.043478260869565216
-4,mysql,MySQL/MariaDB,0.009380097879282219,1.0,46,"{""platform"": 0.35, ""software"": 0.26, ""ml_ai"": 0.15}",0.043478260869565216
-4,mongodb,MongoDB,0.009380097879282219,1.0,46,"{""platform"": 0.35, ""software"": 0.26, ""ml_ai"": 0.15}",0.043478260869565216
+0,cicd,CI/CD,0.15839967340273525,0.81,1080,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07222222222222222
+0,security,Security (IAM/OWASP/crypto),0.1277811798326189,0.79,1080,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07222222222222222
+0,git,Git,0.10900183710961421,0.79,1080,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07222222222222222
+0,devops,DevOps/SRE,0.10206164523372117,0.84,1080,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07222222222222222
+0,k8s,Kubernetes,0.09246785058175137,0.73,1080,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07222222222222222
+0,linux,Linux,0.0892018779342723,0.79,1080,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07222222222222222
+0,docker,Docker/containers,0.07103490508266994,0.73,1080,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07222222222222222
+0,terraform,Terraform/IaC,0.06817717901612574,0.84,1080,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07222222222222222
+0,observ,Observability (Prometheus/Grafana/OTel),0.052663808940600125,0.84,1080,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07222222222222222
+0,networking,Networking (TCP/IP),0.03388446621759543,0.79,1080,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07222222222222222
+0,bash,Shell/Bash,0.02980200040824658,0.79,1080,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07222222222222222
+0,ansible,Ansible/config mgmt,0.025719534598897736,0.79,1080,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07222222222222222
+0,go,Go,0.020820575627679118,0.84,1080,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07222222222222222
+0,swift,Swift/iOS,0.014696876913655848,0.81,1080,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07222222222222222
+0,rust,Rust,0.008573178199632579,0.48,1080,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07222222222222222
+0,elastic,Elasticsearch/OpenSearch,0.008164931618697694,0.84,1080,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07222222222222222
+0,cassandra,Cassandra/Bigtable/Dynamo,0.007756685037762809,0.81,1080,"{""platform"": 0.33, ""software"": 0.23, ""ml_ai"": 0.11}",0.07222222222222222
+1,python,Python,0.17534190651153297,0.85,994,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14285714285714285
+1,embedded,Embedded/firmware,0.08858950806286997,0.84,994,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14285714285714285
+1,llm,LLM/GenAI,0.07613798734435599,0.84,994,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14285714285714285
+1,cpp,C++,0.07552561747295367,0.84,994,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14285714285714285
+1,ml,Machine learning,0.07246376811594203,0.84,994,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14285714285714285
+1,stats,Statistics/analytics,0.05654215145948153,0.84,994,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14285714285714285
+1,agents,AI agents/tool use,0.05286793223106757,0.84,994,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14285714285714285
+1,aitools,AI coding tools,0.0491937130026536,0.84,994,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14285714285714285
+1,c,C,0.04817309655031639,0.84,994,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14285714285714285
+1,dsa,Algorithms/data structures,0.02959787711777914,0.84,994,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14285714285714285
+1,matlab,MATLAB,0.024290671565625636,0.84,994,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14285714285714285
+1,rag,RAG/vector search,0.024086548275158194,0.84,994,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14285714285714285
+1,dl,Deep learning (PyTorch/TF),0.016125739946927946,0.85,994,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14285714285714285
+1,mlops,MLOps/model serving,0.014288630332720964,0.84,994,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14285714285714285
+1,os,OS/kernel/low-level,0.01388038375178608,0.84,994,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14285714285714285
+1,5g,Telecom (5G/RAN),0.012451520718513982,0.84,994,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14285714285714285
+1,cv,Computer vision,0.010002041232904674,0.84,994,"{""ml_ai"": 0.31, ""software"": 0.25, ""embedded"": 0.14}",0.14285714285714285
+2,agile,Agile/Scrum,0.1383955909369259,1.0,807,"{""software"": 0.39, ""platform"": 0.11, ""fullstack"": 0.1}",0.07558859975216853
+2,java,Java,0.07777097366809553,1.0,807,"{""software"": 0.39, ""platform"": 0.11, ""fullstack"": 0.1}",0.07558859975216853
+2,csharp,C#/.NET,0.07593386405388855,1.0,807,"{""software"": 0.39, ""platform"": 0.11, ""fullstack"": 0.1}",0.07558859975216853
+2,tdd,Testing/TDD,0.05878750765462339,1.0,807,"{""software"": 0.39, ""platform"": 0.11, ""fullstack"": 0.1}",0.07558859975216853
+2,react,React,0.05837926107368851,1.0,807,"{""software"": 0.39, ""platform"": 0.11, ""fullstack"": 0.1}",0.07558859975216853
+2,typescript,TypeScript,0.057971014492753624,1.0,807,"{""software"": 0.39, ""platform"": 0.11, ""fullstack"": 0.1}",0.07558859975216853
+2,javascript,JavaScript,0.05552153500714432,1.0,807,"{""software"": 0.39, ""platform"": 0.11, ""fullstack"": 0.1}",0.07558859975216853
+2,microservices,Microservices,0.031639110022453565,1.0,807,"{""software"": 0.39, ""platform"": 0.11, ""fullstack"": 0.1}",0.07558859975216853
+2,rest,REST/HTTP APIs,0.03061849357011635,1.0,807,"{""software"": 0.39, ""platform"": 0.11, ""fullstack"": 0.1}",0.07558859975216853
+2,distributed,Distributed systems,0.026536027760767505,1.0,807,"{""software"": 0.39, ""platform"": 0.11, ""fullstack"": 0.1}",0.07558859975216853
+2,angular,Angular,0.019595835884874464,1.0,807,"{""software"": 0.39, ""platform"": 0.11, ""fullstack"": 0.1}",0.07558859975216853
+2,spring,Spring/Spring Boot,0.01918758930393958,1.0,807,"{""software"": 0.39, ""platform"": 0.11, ""fullstack"": 0.1}",0.07558859975216853
+2,kotlin,Kotlin,0.015921616656460504,1.0,807,"{""software"": 0.39, ""platform"": 0.11, ""fullstack"": 0.1}",0.07558859975216853
+2,vue,Vue,0.01224739742804654,1.0,807,"{""software"": 0.39, ""platform"": 0.11, ""fullstack"": 0.1}",0.07558859975216853
+2,oop,OOP/design patterns,0.01224739742804654,1.0,807,"{""software"": 0.39, ""platform"": 0.11, ""fullstack"": 0.1}",0.07558859975216853
+2,graphql,GraphQL,0.008164931618697694,1.0,807,"{""software"": 0.39, ""platform"": 0.11, ""fullstack"": 0.1}",0.07558859975216853
+3,azure,Azure,0.12594407021841192,0.79,682,"{""software"": 0.22, ""platform"": 0.22, ""data"": 0.19}",0.0469208211143695
+3,sql,SQL,0.08961012451520718,0.88,682,"{""software"": 0.22, ""platform"": 0.22, ""data"": 0.19}",0.0469208211143695
+3,aws,AWS,0.08899775464380486,0.83,682,"{""software"": 0.22, ""platform"": 0.22, ""data"": 0.19}",0.0469208211143695
+3,sysdesign,System design/scalability,0.08716064502959787,0.82,682,"{""software"": 0.22, ""platform"": 0.22, ""data"": 0.19}",0.0469208211143695
+3,gcp,GCP,0.06368646662584201,0.86,682,"{""software"": 0.22, ""platform"": 0.22, ""data"": 0.19}",0.0469208211143695
+3,dwh,Data warehouse (BigQuery/Snowflake/Redshift),0.028373137374974485,0.88,682,"{""software"": 0.22, ""platform"": 0.22, ""data"": 0.19}",0.0469208211143695
+3,spark,Spark,0.025923657889365178,0.88,682,"{""software"": 0.22, ""platform"": 0.22, ""data"": 0.19}",0.0469208211143695
+3,airflow,Airflow/dbt/orchestration,0.02449479485609308,0.88,682,"{""software"": 0.22, ""platform"": 0.22, ""data"": 0.19}",0.0469208211143695
+3,kafka,Kafka,0.020616452337211676,0.8,682,"{""software"": 0.22, ""platform"": 0.22, ""data"": 0.19}",0.0469208211143695
+3,mq,Message queues (RabbitMQ/PubSub/SQS),0.011839150847111655,0.84,682,"{""software"": 0.22, ""platform"": 0.22, ""data"": 0.19}",0.0469208211143695
+4,postgres,PostgreSQL,0.027352520922637274,1.0,45,"{""platform"": 0.33, ""software"": 0.27, ""ml_ai"": 0.16}",0.044444444444444446
+4,mongodb,MongoDB,0.009389671361502348,1.0,45,"{""platform"": 0.33, ""software"": 0.27, ""ml_ai"": 0.16}",0.044444444444444446
+4,mysql,MySQL/MariaDB,0.009185548071034905,1.0,45,"{""platform"": 0.33, ""software"": 0.27, ""ml_ai"": 0.16}",0.044444444444444446

@@ -4,7 +4,7 @@
   "skill": "git",
   "label": "Git",
   "layer": 1,
-  "roi": 1.144,
+  "roi": 1.142,
   "needs": [],
   "site": "",
   "level": 0.0,
@@ -15,7 +15,7 @@
   "skill": "agile",
   "label": "Agile/Scrum",
   "layer": 1,
-  "roi": 0.819,
+  "roi": 0.815,
   "needs": [],
   "site": "",
   "level": 0.0,
@@ -26,7 +26,7 @@
   "skill": "linux",
   "label": "Linux",
   "layer": 1,
-  "roi": 0.702,
+  "roi": 0.701,
   "needs": [],
   "site": "",
   "level": 0.0,
@@ -37,7 +37,7 @@
   "skill": "cicd",
   "label": "CI/CD",
   "layer": 2,
-  "roi": 0.69,
+  "roi": 0.689,
   "needs": [
    "git"
   ],
@@ -72,7 +72,7 @@
   "skill": "llm",
   "label": "LLM/GenAI",
   "layer": 2,
-  "roi": 0.425,
+  "roi": 0.424,
   "needs": [
    "python"
   ],
@@ -85,7 +85,7 @@
   "skill": "docker",
   "label": "Docker/containers",
   "layer": 2,
-  "roi": 0.336,
+  "roi": 0.335,
   "needs": [
    "linux"
   ],
@@ -124,7 +124,7 @@
   "skill": "sql",
   "label": "SQL",
   "layer": 1,
-  "roi": 0.227,
+  "roi": 0.226,
   "needs": [],
   "site": "",
   "level": 0.0,
@@ -135,7 +135,7 @@
   "skill": "tdd",
   "label": "Testing/TDD",
   "layer": 1,
-  "roi": 0.208,
+  "roi": 0.207,
   "needs": [],
   "site": "",
   "level": 0.0,
@@ -219,7 +219,7 @@
   "skill": "rest",
   "label": "REST/HTTP APIs",
   "layer": 1,
-  "roi": 0.137,
+  "roi": 0.136,
   "needs": [],
   "site": "",
   "level": 0.0,
@@ -243,7 +243,7 @@
   "skill": "aws",
   "label": "AWS",
   "layer": 2,
-  "roi": 0.128,
+  "roi": 0.127,
   "needs": [
    "linux"
   ],
@@ -256,7 +256,7 @@
   "skill": "terraform",
   "label": "Terraform/IaC",
   "layer": 3,
-  "roi": 0.151,
+  "roi": 0.15,
   "needs": [
    "aws"
   ],
