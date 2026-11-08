@@ -7,7 +7,7 @@ it worth learning them?**
 Each weekly run collects the live listings from Arbetsförmedlingen's open data and from
 about 200 employers' own career boards, labels every ad with skills, seniority and role
 family, and publishes aggregated statistics: skill demand with confidence intervals, skill
-clusters, the entry-level vs senior gap, ten-year trends and a dependency-ordered learning map.
+clusters, the entry-level vs senior gap, yearly trends since 2020 and a dependency-ordered learning map.
 
 ## How it works
 
@@ -17,7 +17,7 @@ clusters, the entry-level vs senior gap, ten-year trends and a dependency-ordere
 | Employer boards | `jobs/adapters.py` | One adapter per applicant-tracking system, not per company: Teamtailor (RSS), Greenhouse, Lever, Ashby, Workable, SmartRecruiters, Recruitee, Personio, Workday, Eightfold, Deel, plus a cautious HTML fallback. The employer list is `config/companies.csv`. |
 | Board discovery | `jobs/detect.py` | Fills in the ATS for employers marked `unknown` from careers-page fingerprints and public board APIs. |
 | Build | `jobs/build.py` | Normalises sources into one table, matches employers to tiers, labels each ad, and de-duplicates the same job posted on Platsbanken and on the employer's own board. |
-| History | `jobs/history.py` | Streams JobTech's yearly bulk files (2016 onwards) and keeps per-ad features only. |
+| History | `jobs/history.py` | Streams JobTech's yearly bulk files (2020 onwards by default; any year from 2016 can be built) and keeps per-ad features only. |
 | Analysis | `jobs/analyze.py` | The statistics below. |
 
 Labels are rules, so every decision can be audited:
@@ -32,8 +32,9 @@ The `data` branch holds aggregated statistics only, one folder per run.
 
 - `analysis/<date>/demand.csv`: share of engineering ads mentioning each skill, by employer tier, role family and seniority, with Wilson 95% intervals and a tier-weighted index.
 - `analysis/<date>/cooc.csv`, `clusters.csv`: NPMI co-occurrence and Louvain skill communities, with stability across seeds.
-- `analysis/<date>/gap.csv`: entry-level vs senior log odds ratio per skill, with 95% intervals.
-- `trends/trends.csv`, `trend_fit.csv`, `market.csv`: yearly skill shares since 2016 and quasi-binomial logistic slopes with intervals.
+- `analysis/<date>/gap.csv`: entry-level vs senior log odds ratio per skill, with 95% intervals; once for all early-career ads and once for graduate and junior jobs only (thesis projects and internships excluded).
+- `analysis/<date>/signals.csv`: share of ads that require Swedish, are EU-only, need security clearance, mention visa sponsorship or are written in English, by tier and level.
+- `trends/trends.csv`, `trend_fit.csv`, `market.csv`: yearly skill shares since 2020 and quasi-binomial logistic slopes with intervals. Years built earlier (2016 to 2019) are kept in `trends/earlier/` as background.
 - `analysis/<date>/platsbanken_bias.csv`: how much of each employer's own board also reaches Platsbanken.
 - `analysis/<date>/roi.csv`, `route.json`: skills ranked by demand, growth and learning cost, with bootstrap rank intervals, in prerequisite order.
 - `logs/<date>/coverage.csv`: every employer, what was fetched or why it was skipped.
@@ -46,7 +47,7 @@ python tests/test_units.py
 
 python -m jobs.crawl   --out data/raw/<date>
 python -m jobs.build   --raw data/raw/<date> --out data/snapshots/<date>
-python -m jobs.history --years 2016-2026 --out data/history
+python -m jobs.history --years 2020-2026 --out data/history
 python -m jobs.analyze --history data/history --out data/trends
 python -m jobs.analyze --snapshot data/snapshots/<date> --history data/trends \
                        --out data/analysis/<date> --profile config/profile.example.json

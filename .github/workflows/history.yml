@@ -5,7 +5,7 @@ on:
       years:
         description: "Years to rebuild"
         type: string
-        default: "2016-2026"
+        default: "2020-2026"
   schedule:
     - cron: "0 3 2 * *"        # 2nd of each month (the current year's quarterly file changes)
   push:
@@ -27,7 +27,7 @@ jobs:
       - run: pip install -r requirements.txt
       - name: Build history tables from JobTech bulk files
         run: |
-          python -m jobs.history --years "${{ inputs.years || '2016-2026' }}" --out out/history --force
+          python -m jobs.history --years "${{ inputs.years || '2020-2026' }}" --out out/history --force
           python -m jobs.analyze --history out/history --out out/trends
       - name: Commit to data branch
         run: |
@@ -38,7 +38,9 @@ jobs:
             git worktree add --detach data && (cd data && git checkout --orphan data && git rm -rf . -q || true)
           fi
           # commit per-year aggregates only; the per-ad feature tables stay in the artifact
-          mkdir -p data/trends && cp out/trends/*.csv out/history/lines_per_file.json data/trends/
+          # years this run did not rebuild (e.g. before 2020) are kept as background in trends/earlier/
+          mkdir -p data/trends && python .github/keep_earlier_years.py data/trends out/trends
+          cp out/trends/*.csv out/history/lines_per_file.json data/trends/
           cd data && git add -A && (git commit -q -m "history $(date -u +%F)" || echo "nothing to commit")
           for i in 1 2 3 4; do git push -q origin data && break; git pull -q --rebase origin data; sleep $((i*5)); done
       - uses: actions/upload-artifact@v4

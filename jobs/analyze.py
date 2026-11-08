@@ -9,6 +9,8 @@ Outputs (CSV unless noted):
   cooc.csv          skill pairs: co-count, lift, NPMI
   clusters.csv      skill communities (Louvain on the NPMI graph, 20 seeds), with stability
   gap.csv           entry vs senior: log odds ratio per skill with 95% interval
+                    (cohort "entry" = all early-career ads, "jobs" = graduate and junior only)
+  signals.csv       Swedish requirement, EU-only, clearance, visa and English-ad shares by tier and level
   trends.csv        per skill per year share in Data/IT ads, Wilson interval
   trend_fit.csv     quasi-binomial logistic slope per skill over the fit window, with 95% interval
   market.csv        per year: ad volume, Swedish-required share, entry share, AI-mention share
@@ -146,8 +148,14 @@ def clusters(cc, M, ids, df, seeds=20, thr=0.08):
     return pd.DataFrame(rows), dict(modularity=mod, edges=G.number_of_edges(), nodes=G.number_of_nodes())
 
 
-def gap(df, M, ids):
-    e, s = df.entry.values, (df.seniority == "senior").values
+def gap(df, M, ids, cohort="entry", levels=None):
+    """Log odds ratio of each skill, an early-career cohort vs senior ads.
+
+    cohort "entry" is every early-career ad (thesis, intern, graduate, junior); "jobs" drops
+    thesis projects and internships, which lean towards research topics (ML, 5G) and would
+    otherwise make those look like entry-level skills."""
+    e = df.seniority.isin(levels).values if levels else df.entry.values
+    s = (df.seniority == "senior").values
     ne, ns = e.sum(), s.sum()
     rows = []
     for j, sid in enumerate(ids):
@@ -156,7 +164,27 @@ def gap(df, M, ids):
         lor = math.log((a / b) / (c / d))
         se = math.sqrt(1 / a + 1 / b + 1 / c + 1 / d)
         rows.append(dict(skill=sid, label=SKILLS[sid]["label"], entry_share=(a - .5) / max(ne, 1), senior_share=(c - .5) / max(ns, 1),
-                         log_or=lor, lo=lor - Z * se, hi=lor + Z * se, n_entry=int(ne), n_senior=int(ns)))
+                         log_or=lor, lo=lor - Z * se, hi=lor + Z * se, n_entry=int(ne), n_senior=int(ns), cohort=cohort))
+    return pd.DataFrame(rows)
+
+
+SIGNALS = ["swedish_required", "swedish_plus", "eu_only", "clearance", "visa_ok"]
+
+
+def signals(df):
+    """Share of engineering ads with each hiring signal, overall and by tier and seniority, with Wilson intervals."""
+    d = df.copy()
+    d["english_ad"] = d["ad_lang"].eq("en")
+    rows = []
+    groups = [("all", d)] + [(f"tier:{t}", g) for t, g in d.groupby("tier")] + \
+             [(f"level:{l}", g) for l, g in d.groupby(d.seniority.map(lambda x: "entry" if x in classify.ENTRY else x))]
+    for name, g in groups:
+        for col in SIGNALS + ["english_ad"]:
+            if col not in g:
+                continue
+            k, n = int(g[col].fillna(False).astype(bool).sum()), len(g)
+            p, lo, hi = wilson(k, n)
+            rows.append(dict(group=name, signal=col, k=k, n=n, share=p, lo=lo, hi=hi))
     return pd.DataFrame(rows)
 
 
@@ -385,8 +413,9 @@ def main():
     cc.to_csv(os.path.join(out, "cooc.csv"), index=False)
     cl, clmeta = clusters(cc, M, ids, df)
     cl.to_csv(os.path.join(out, "clusters.csv"), index=False)
-    gp = gap(df, M, ids)
+    gp = pd.concat([gap(df, M, ids), gap(df, M, ids, "jobs", ["graduate", "junior"])], ignore_index=True)
     gp.to_csv(os.path.join(out, "gap.csv"), index=False)
+    signals(df).to_csv(os.path.join(out, "signals.csv"), index=False)
     r = roi(df, M, ids, fit)
     r.to_csv(os.path.join(out, "roi.csv"), index=False)
     rt = route(r)

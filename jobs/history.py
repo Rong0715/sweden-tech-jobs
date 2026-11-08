@@ -1,6 +1,6 @@
 """Build the 10-year history table from JobTech's yearly bulk files.
 
-  python -m jobs.history --years 2016-2026 --out data/history [--keep-zip]
+  python -m jobs.history --years 2020-2026 --out data/history [--keep-zip]
 
 For each year: download the zip (0.2-1.5 GB), stream every ad, keep tech ads only
 (Data/IT occupation field, plus software-like titles elsewhere, flagged field_it=False),
@@ -28,7 +28,7 @@ def parse_years(s):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--years", default="2016-2026")
+    ap.add_argument("--years", default="2020-2026")
     ap.add_argument("--out", default="data/history")
     ap.add_argument("--keep-zip", action="store_true")
     ap.add_argument("--force", action="store_true")
