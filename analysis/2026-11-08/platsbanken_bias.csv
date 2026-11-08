@@ -1,11 +1,11 @@
 company,tier,ats_postings,also_on_platsbanken,platsbanken_only,share_on_platsbanken
 Academic Work,consultancy,15,1,196,0.06666666666666667
-Alfa Laval,mid,6,0,6,0.0
+Alfa Laval,mid,5,0,6,0.0
 Alva Labs,scaleup,1,0,0,0.0
 Anyfin,scaleup,15,4,0,0.26666666666666666
 Apotea,mid,4,1,0,0.25
 Apotek Hjärtat (ICA Gruppen),mid,3,0,0,0.0
-Arbetsförmedlingen,public,22,0,5,0.0
+Arbetsförmedlingen,public,21,0,5,0.0
 Arm,top,15,5,4,0.3333333333333333
 Autoliv,mid,3,0,1,0.0
 Avalanche Studios Group,mid,4,0,0,0.0
@@ -19,17 +19,17 @@ Boozt,mid,4,0,0,0.0
 Brite Payments,scaleup,3,0,0,0.0
 CDON,mid,2,0,0,0.0
 Chalmers University of Technology,public,2,0,0,0.0
-Clas Ohlson,mid,8,0,0,0.0
+Clas Ohlson,mid,6,0,0,0.0
 Columbus,consultancy,17,4,3,0.23529411764705882
-Combitech,consultancy,46,16,5,0.34782608695652173
+Combitech,consultancy,43,15,6,0.3488372093023256
 Consid,consultancy,46,0,0,0.0
 Detectify,scaleup,5,0,0,0.0
 EA DICE,top,1,0,0,0.0
 Elekta,mid,16,0,0,0.0
 Embark Studios,top,17,7,0,0.4117647058823529
 Epidemic Sound,scaleup,20,1,0,0.05
-Ericsson,top,81,9,8,0.1111111111111111
-Experis (ManpowerGroup),consultancy,1,0,47,0.0
+Ericsson,top,79,8,7,0.10126582278481013
+Experis (ManpowerGroup),consultancy,1,0,45,0.0
 Fatshark,mid,1,0,0,0.0
 Fishbrain,scaleup,2,0,0,0.0
 Flower,scaleup,10,4,0,0.4
@@ -38,17 +38,17 @@ Fortnox,mid,18,0,0,0.0
 Hedvig,scaleup,3,0,0,0.0
 Hemnet,scaleup,4,0,0,0.0
 HiQ,consultancy,81,0,0,0.0
-Hitachi Energy,mid,162,4,112,0.024691358024691357
+Hitachi Energy,mid,159,4,111,0.025157232704402517
 Huawei Sweden R&D,top,25,0,0,0.0
 Husqvarna Group,mid,1,0,11,0.0
 IKEA (Ingka Group / IKEA IT),mid,15,0,9,0.0
-If Skadeförsäkring,mid,20,0,0,0.0
+If Skadeförsäkring,mid,19,0,0,0.0
 Instabee (Budbee/Instabox),scaleup,33,5,1,0.15151515151515152
 Juni,scaleup,2,0,0,0.0
 KTH Royal Institute of Technology,public,42,0,0,0.0
 Kivra,scaleup,4,0,0,0.0
 Klarna,top,30,0,1,0.0
-Knightec Group,consultancy,92,38,22,0.41304347826086957
+Knightec Group,consultancy,91,39,19,0.42857142857142855
 Knowit,consultancy,100,21,1,0.21
 Kry (Livi),scaleup,50,0,0,0.0
 Lantmäteriet,public,13,1,1,0.07692307692307693
@@ -58,7 +58,7 @@ Lunar,scaleup,3,0,0,0.0
 Lund University,public,60,0,0,0.0
 Mentimeter,scaleup,11,0,1,0.0
 Microsoft,top,13,0,1,0.0
-Migrationsverket,public,29,1,1,0.034482758620689655
+Migrationsverket,public,24,1,1,0.041666666666666664
 Mindler,scaleup,1,0,0,0.0
 Modulai,scaleup,3,0,1,0.0
 Mojang Studios,top,6,0,0,0.0
@@ -68,7 +68,7 @@ Nasdaq,mid,9,0,0,0.0
 Natural Cycles,scaleup,1,0,0,0.0
 Neko Health,scaleup,46,0,0,0.0
 Netlight,consultancy,7,0,2,0.0
-Nexer Recruit (Nexer Group),consultancy,20,0,0,0.0
+Nexer Recruit (Nexer Group),consultancy,19,0,0,0.0
 Nordnet,mid,17,5,0,0.29411764705882354
 Norion Bank (fka Collector),mid,4,0,0,0.0
 Paradox Interactive,top,12,0,0,0.0
@@ -80,15 +80,15 @@ Prevas,consultancy,37,0,0,0.0
 Qliro,scaleup,11,1,0,0.09090909090909091
 Qualcomm,top,2,0,0,0.0
 Quinyx,scaleup,4,0,0,0.0
-RISE Research Institutes of Sweden,public,25,6,2,0.24
+RISE Research Institutes of Sweden,public,19,5,1,0.2631578947368421
 Redpill Linpro,consultancy,8,0,0,0.0
 Resurs Bank,mid,8,0,3,0.0
 SEB,mid,43,0,0,0.0
-SMHI,public,6,0,0,0.0
+SMHI,public,3,0,0,0.0
 SVT,mid,5,0,0,0.0
-Saab,mid,431,111,68,0.25754060324825984
+Saab,mid,427,111,68,0.25995316159250587
 Sana (Workday),scaleup,3,0,0,0.0
-Sandvik,mid,17,0,2,0.0
+Sandvik,mid,13,0,1,0.0
 Sellpy,scaleup,6,0,0,0.0
 Sharkmob,mid,8,1,0,0.125
 Siemens Energy,mid,18,0,16,0.0
@@ -102,7 +102,7 @@ Spotify,top,34,0,0,0.0
 Storytel,top,1,0,0,0.0
 Stravito,scaleup,2,0,0,0.0
 Svea Bank,mid,7,3,1,0.42857142857142855
-Swedbank,mid,38,6,0,0.15789473684210525
+Swedbank,mid,35,6,0,0.17142857142857143
 TV4,mid,12,0,0,0.0
 Tandem Health,scaleup,37,1,0,0.02702702702702703
 Tibber,scaleup,12,0,0,0.0
@@ -114,11 +114,11 @@ Umeå University,public,48,0,0,0.0
 Uppsala University,public,60,0,0,0.0
 Validio,scaleup,13,0,0,0.0
 Valtech,consultancy,1,0,0,0.0
-Vattenfall,mid,16,0,80,0.0
+Vattenfall,mid,1,0,73,0.0
 Viaplay Group,mid,21,1,0,0.047619047619047616
 Voi,scaleup,20,0,0,0.0
-Volvo Cars,top,13,0,0,0.0
+Volvo Cars,top,11,0,0,0.0
 Voyado,scaleup,5,0,0,0.0
 Yubico,scaleup,12,0,0,0.0
 Zenseact,scaleup,5,0,1,0.0
-eHälsomyndigheten,public,17,0,0,0.0
+eHälsomyndigheten,public,15,0,0,0.0
