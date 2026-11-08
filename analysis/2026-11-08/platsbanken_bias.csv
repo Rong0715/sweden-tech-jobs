@@ -21,7 +21,7 @@ CDON,mid,2,0,0,0.0
 Chalmers University of Technology,public,2,0,0,0.0
 Clas Ohlson,mid,8,0,0,0.0
 Columbus,consultancy,17,4,3,0.23529411764705882
-Combitech,consultancy,33,15,6,0.45454545454545453
+Combitech,consultancy,46,16,5,0.34782608695652173
 Consid,consultancy,46,0,0,0.0
 Detectify,scaleup,5,0,0,0.0
 EA DICE,top,1,0,0,0.0
@@ -38,15 +38,16 @@ Fortnox,mid,18,0,0,0.0
 Hedvig,scaleup,3,0,0,0.0
 Hemnet,scaleup,4,0,0,0.0
 HiQ,consultancy,81,0,0,0.0
-Hitachi Energy,mid,39,1,115,0.02564102564102564
+Hitachi Energy,mid,162,4,112,0.024691358024691357
 Huawei Sweden R&D,top,25,0,0,0.0
-Husqvarna Group,mid,6,0,11,0.0
+Husqvarna Group,mid,1,0,11,0.0
 IKEA (Ingka Group / IKEA IT),mid,15,0,9,0.0
-If Skadeförsäkring,mid,18,0,0,0.0
+If Skadeförsäkring,mid,20,0,0,0.0
 Instabee (Budbee/Instabox),scaleup,33,5,1,0.15151515151515152
 Juni,scaleup,2,0,0,0.0
 KTH Royal Institute of Technology,public,42,0,0,0.0
 Kivra,scaleup,4,0,0,0.0
+Klarna,top,1,0,1,0.0
 Knightec Group,consultancy,92,38,22,0.41304347826086957
 Knowit,consultancy,100,21,1,0.21
 Kry (Livi),scaleup,50,0,0,0.0
@@ -85,12 +86,12 @@ Resurs Bank,mid,8,0,3,0.0
 SEB,mid,43,0,0,0.0
 SMHI,public,6,0,0,0.0
 SVT,mid,5,0,0,0.0
-Saab,mid,19,1,178,0.05263157894736842
+Saab,mid,466,118,61,0.2532188841201717
 Sana (Workday),scaleup,3,0,0,0.0
 Sandvik,mid,17,0,2,0.0
 Sellpy,scaleup,6,0,0,0.0
 Sharkmob,mid,8,1,0,0.125
-Siemens Energy,mid,15,0,16,0.0
+Siemens Energy,mid,18,0,16,0.0
 Sigma Technology,consultancy,1,0,14,0.0
 Sitoo,scaleup,4,0,0,0.0
 Skatteverket,public,38,6,1,0.15789473684210525
