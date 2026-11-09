@@ -62,3 +62,14 @@ for y in sorted(it.year.unique()):
             continue
         emp = g.employer[col == 1].value_counts()
         print(f"CAPCSV,{y},{sid},{k},{col[capm].mean():.5f},{emp.iloc[0]/k:.4f},{len(emp)}")
+
+# Swedish required, ad in English, entry level: raw, employer-capped, and without the year's largest employer.
+print("SIGCSV,year,signal,raw,capped,without_top")
+for y in sorted(it.year.unique()):
+    g = it[it.year == y].reset_index(drop=True)
+    capm = (g.groupby("employer").cumcount() < 10).values
+    top = g.employer.value_counts().index[0]
+    rest = (g.employer != top).values
+    for name, v in [("sv_required", g.sv_req.astype(float)), ("ad_in_english", (g.ad_lang == "en").astype(float)),
+                    ("entry", g.seniority.isin(classify.ENTRY).astype(float))]:
+        print(f"SIGCSV,{y},{name},{v.mean():.4f},{v[capm].mean():.4f},{v[rest].mean():.4f}")
