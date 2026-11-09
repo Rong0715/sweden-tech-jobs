@@ -1,12 +1,12 @@
 {
  "snapshot": "2026-11-09",
- "listings": 7520,
- "companies": 1226,
+ "listings": 7521,
+ "companies": 1225,
  "by_source": {
-  "jobtech": 5203,
+  "jobtech": 5200,
   "teamtailor": 829,
   "workday": 695,
-  "html": 556,
+  "html": 560,
   "ashby": 256,
   "eightfold": 94,
   "lever": 87,
@@ -14,8 +14,8 @@
   "deel": 30
  },
  "by_tier": {
-  "other": 3380,
-  "mid": 1314,
+  "other": 3377,
+  "mid": 1318,
   "consultancy": 1258,
   "top": 472,
   "public": 440,
@@ -23,23 +23,23 @@
   "recruiter": 262
  },
  "by_seniority": {
-  "mid": 4071,
-  "senior": 2738,
-  "junior": 487,
+  "mid": 4068,
+  "senior": 2739,
+  "junior": 490,
   "thesis": 148,
   "graduate": 56,
   "intern": 20
  },
  "by_family": {
   "other_eng": 1960,
-  "other": 1895,
+  "other": 1899,
   "software": 723,
-  "it_ops": 614,
+  "it_ops": 612,
   "pm_design": 550,
   "platform": 448,
   "ml_ai": 414,
   "security": 205,
-  "embedded": 195,
+  "embedded": 194,
   "data": 160,
   "qa": 96,
   "backend": 89,
