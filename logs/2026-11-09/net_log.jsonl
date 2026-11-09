@@ -1,46 +1,46 @@
-{"kind": "robots_disallow", "url": "https://api.smartrecruiters.com/v1/companies/Ubisoft2/postings", "rule": "Disallow: /", "ts": "2026-11-09T05:32:22Z"}
-{"kind": "http_error", "url": "https://www.google.com/about/careers/applications/jobs/results/jobs/results/126055959020610246-communications-manager-technical-infrastructure-emea?location=Stockholm,+Sweden", "status": 404, "ts": "2026-11-09T05:32:36Z"}
-{"kind": "http_error", "url": "https://www.google.com/about/careers/applications/jobs/results/jobs/results/132757516751643334-data-cloud-sales-specialist-emea-north?location=Stockholm,+Sweden", "status": 404, "ts": "2026-11-09T05:32:37Z"}
-{"kind": "http_error", "url": "https://www.google.com/about/careers/applications/jobs/results/jobs/results/94333351241884358-senior-customer-engineer-workspace-gcp-nordics?location=Stockholm,+Sweden", "status": 404, "ts": "2026-11-09T05:32:38Z"}
-{"kind": "http_error", "url": "https://www.google.com/about/careers/applications/jobs/results/jobs/results/86733690079453894-student-researcher-2027?location=Stockholm,+Sweden", "status": 404, "ts": "2026-11-09T05:32:39Z"}
-{"kind": "http_error", "url": "https://www.google.com/about/careers/applications/jobs/results/jobs/results/83860581102035654-principal-architect-telecommunications-emea?location=Stockholm,+Sweden", "status": 404, "ts": "2026-11-09T05:32:40Z"}
-{"kind": "http_error", "url": "https://www.google.com/about/careers/applications/jobs/results/jobs/results/98814145398219462-migration-and-transformation-architect-google-cloud-emea?location=Stockholm,+Sweden", "status": 404, "ts": "2026-11-09T05:32:41Z"}
-{"kind": "robots_disallow", "url": "https://api.smartrecruiters.com/v1/companies/Visa/postings", "rule": "Disallow: /", "ts": "2026-11-09T05:32:42Z"}
-{"kind": "http_error", "url": "https://www.google.com/about/careers/applications/jobs/results/jobs/results/121191495435723462-senior-software-engineer-google-meet-security?location=Stockholm,+Sweden", "status": 404, "ts": "2026-11-09T05:32:42Z"}
-{"kind": "http_error", "url": "https://www.google.com/about/careers/applications/jobs/results/jobs/results/72990503401857734-data-center-power-infrastructure-technical-program-manager?location=Stockholm,+Sweden", "status": 404, "ts": "2026-11-09T05:32:43Z"}
-{"kind": "http_error", "url": "https://www.google.com/about/careers/applications/jobs/results/jobs/results/96870830805263046-head-of-enterprise-sales-google-cloud?location=Stockholm,+Sweden", "status": 404, "ts": "2026-11-09T05:32:44Z"}
-{"kind": "robots_disallow", "url": "unknown", "rule": "robots.txt unreachable", "ts": "2026-11-09T05:33:03Z"}
-{"kind": "robots_disallow", "url": "https://careers-zenimax.icims.com/jobs/3043/senior-gameplay-programmer/job", "rule": "Disallow: /", "ts": "2026-11-09T05:33:04Z"}
-{"kind": "http_error", "url": "https://emp.jobylon.com/jobs/254157-heart-aerospace-senior-embedded-software-engineer-battery-systems/", "status": 404, "ts": "2026-11-09T05:33:04Z"}
-{"kind": "robots_disallow", "url": "unknown", "rule": "robots.txt unreachable", "ts": "2026-11-09T05:33:04Z"}
-{"kind": "http_error", "url": "https://careers.readly.com/jobs.rss", "status": 404, "ts": "2026-11-09T05:33:07Z"}
-{"kind": "http_error", "url": "https://api.lever.co/v0/postings/seb?mode=json", "status": 404, "ts": "2026-11-09T05:33:09Z"}
-{"kind": "http_error", "url": "https://trygghansa.teamtailor.com/jobs.rss", "status": 404, "ts": "2026-11-09T05:33:19Z"}
-{"kind": "http_error", "url": "https://jobs.brassring.com/TGnewUI/Search/home/HomeWithPreLoad?partnerid=25872&siteid=5512", "status": 500, "ts": "2026-11-09T05:33:46Z"}
-{"kind": "http_error", "url": "https://wd3.myworkdaysite.com/wday/cxs/wd3/Magna/jobs", "status": 422, "ts": "2026-11-09T05:33:49Z"}
-{"kind": "robots_disallow", "url": "https://career.cevt.se/jobs.rss", "rule": "robots.txt unreachable", "ts": "2026-11-09T05:33:50Z"}
-{"kind": "robots_disallow", "url": "https://api.smartrecruiters.com/v1/companies/HMGroup/postings", "rule": "Disallow: /", "ts": "2026-11-09T05:33:55Z"}
-{"kind": "robots_disallow", "url": "https://api.smartrecruiters.com/v1/companies/InterIKEAGroup/postings", "rule": "Disallow: /", "ts": "2026-11-09T05:33:58Z"}
-{"kind": "http_error", "url": "https://www.axfood.se/jobba-hos-oss/", "status": 404, "ts": "2026-11-09T05:34:13Z"}
-{"kind": "http_error", "url": "https://emp.jobylon.com/companies/1304/", "status": 404, "ts": "2026-11-09T05:34:13Z"}
-{"kind": "http_error", "url": "https://www.bonniernews.se/jobba-hos-oss", "status": 404, "ts": "2026-11-09T05:34:15Z"}
-{"kind": "robots_disallow", "url": "https://career.thunderfulgames.com/jobs.rss", "rule": "robots.txt unreachable", "ts": "2026-11-09T05:34:23Z"}
-{"kind": "http_error", "url": "https://emp.jobylon.com/jobs/380378-remedy-entertainment-senior-gameplay-animator/%7B$%20url%20$%7D", "status": 404, "ts": "2026-11-09T05:34:30Z"}
-{"kind": "robots_disallow", "url": "https://raysearchlabs.workbuster.com/", "rule": "robots.txt unreachable", "ts": "2026-11-09T05:34:31Z"}
-{"kind": "http_error", "url": "https://medical.sectra.com/about-sectra/careers/", "status": 404, "ts": "2026-11-09T05:34:33Z"}
-{"kind": "http_error", "url": "https://careers.eon.com/sverige/", "status": 403, "ts": "2026-11-09T05:34:39Z"}
-{"kind": "http_error", "url": "https://www.postnord.com/job-vacancies/", "status": 404, "ts": "2026-11-09T05:34:42Z"}
-{"kind": "http_error", "url": "https://www.visma.com/careers/open-positions/jobs.rss", "status": 404, "ts": "2026-11-09T05:34:44Z"}
-{"kind": "http_error", "url": "https://careerhub.qlik.com/api/apply/v2/jobs?domain=qlik.com&start=0&num=100&location=Sweden", "status": 403, "ts": "2026-11-09T05:34:46Z"}
-{"kind": "http_error", "url": "https://careers.tieto.com/sweden", "status": 404, "ts": "2026-11-09T05:34:50Z"}
-{"kind": "robots_disallow", "url": "https://api.smartrecruiters.com/v1/companies/AFRY/postings", "rule": "Disallow: /", "ts": "2026-11-09T05:34:52Z"}
-{"kind": "http_error", "url": "https://www.alten.se/career/", "status": 403, "ts": "2026-11-09T05:34:55Z"}
-{"kind": "http_error", "url": "https://emp.jobylon.com/jobs/%20(company%20feed;%20slug%20pattern%20%3Cid%3E-etteplan-%3Ctitle%3E)", "status": 404, "ts": "2026-11-09T05:34:58Z"}
-{"kind": "bad_rss", "url": "career.truesec.com", "ts": "2026-11-09T05:35:00Z"}
-{"kind": "http_error", "url": "https://tretton37.teamtailor.com/jobs.rss", "status": 404, "ts": "2026-11-09T05:35:08Z"}
-{"kind": "robots_disallow", "url": "https://api.smartrecruiters.com/v1/companies/Devoteam/postings", "rule": "Disallow: /", "ts": "2026-11-09T05:35:10Z"}
-{"kind": "robots_disallow", "url": "https://recruit.visma.com/External/OJCustomer3/AssignmentList.aspx?guidExtSoftware=194e0a26-3142-4c3b-970b-985327b3523f", "rule": "Disallow: /", "ts": "2026-11-09T05:35:14Z"}
-{"kind": "http_error", "url": "https://web103.reachmee.com/ext/I007/497/main?site=2&lang=SE", "status": 404, "ts": "2026-11-09T05:35:57Z"}
-{"kind": "http_error", "url": "https://web103.reachmee.com/ext/I011/853/main?site=6&lang=SE", "status": 404, "ts": "2026-11-09T05:36:37Z"}
-{"kind": "http_error", "url": "https://www.lantmateriet.se/sv/om-lantmateriet/jobba-hos-oss/lediga-jobb/%7B%7BUrl%7D%7D", "status": 404, "ts": "2026-11-09T05:36:43Z"}
-{"kind": "robots_disallow", "url": "https://careers.finshark.io/jobs", "rule": "robots.txt unreachable", "ts": "2026-11-09T05:36:50Z"}
+{"kind": "robots_disallow", "url": "https://api.smartrecruiters.com/v1/companies/Ubisoft2/postings", "rule": "Disallow: /", "ts": "2026-11-09T13:48:22Z"}
+{"kind": "http_error", "url": "https://www.google.com/about/careers/applications/jobs/results/jobs/results/126055959020610246-communications-manager-technical-infrastructure-emea?location=Stockholm,+Sweden", "status": 404, "ts": "2026-11-09T13:48:37Z"}
+{"kind": "http_error", "url": "https://www.google.com/about/careers/applications/jobs/results/jobs/results/132757516751643334-data-cloud-sales-specialist-emea-north?location=Stockholm,+Sweden", "status": 404, "ts": "2026-11-09T13:48:38Z"}
+{"kind": "http_error", "url": "https://www.google.com/about/careers/applications/jobs/results/jobs/results/94333351241884358-senior-customer-engineer-workspace-gcp-nordics?location=Stockholm,+Sweden", "status": 404, "ts": "2026-11-09T13:48:39Z"}
+{"kind": "http_error", "url": "https://www.google.com/about/careers/applications/jobs/results/jobs/results/86733690079453894-student-researcher-2027?location=Stockholm,+Sweden", "status": 404, "ts": "2026-11-09T13:48:40Z"}
+{"kind": "http_error", "url": "https://www.google.com/about/careers/applications/jobs/results/jobs/results/83860581102035654-principal-architect-telecommunications-emea?location=Stockholm,+Sweden", "status": 404, "ts": "2026-11-09T13:48:41Z"}
+{"kind": "http_error", "url": "https://www.google.com/about/careers/applications/jobs/results/jobs/results/98814145398219462-migration-and-transformation-architect-google-cloud-emea?location=Stockholm,+Sweden", "status": 404, "ts": "2026-11-09T13:48:42Z"}
+{"kind": "http_error", "url": "https://www.google.com/about/careers/applications/jobs/results/jobs/results/121191495435723462-senior-software-engineer-google-meet-security?location=Stockholm,+Sweden", "status": 404, "ts": "2026-11-09T13:48:43Z"}
+{"kind": "robots_disallow", "url": "https://api.smartrecruiters.com/v1/companies/Visa/postings", "rule": "Disallow: /", "ts": "2026-11-09T13:48:43Z"}
+{"kind": "http_error", "url": "https://www.google.com/about/careers/applications/jobs/results/jobs/results/72990503401857734-data-center-power-infrastructure-technical-program-manager?location=Stockholm,+Sweden", "status": 404, "ts": "2026-11-09T13:48:44Z"}
+{"kind": "http_error", "url": "https://www.google.com/about/careers/applications/jobs/results/jobs/results/96870830805263046-head-of-enterprise-sales-google-cloud?location=Stockholm,+Sweden", "status": 404, "ts": "2026-11-09T13:48:45Z"}
+{"kind": "robots_disallow", "url": "unknown", "rule": "robots.txt unreachable", "ts": "2026-11-09T13:49:03Z"}
+{"kind": "robots_disallow", "url": "https://careers-zenimax.icims.com/jobs/3043/senior-gameplay-programmer/job", "rule": "Disallow: /", "ts": "2026-11-09T13:49:03Z"}
+{"kind": "http_error", "url": "https://emp.jobylon.com/jobs/254157-heart-aerospace-senior-embedded-software-engineer-battery-systems/", "status": 404, "ts": "2026-11-09T13:49:04Z"}
+{"kind": "robots_disallow", "url": "unknown", "rule": "robots.txt unreachable", "ts": "2026-11-09T13:49:04Z"}
+{"kind": "http_error", "url": "https://careers.readly.com/jobs.rss", "status": 404, "ts": "2026-11-09T13:49:07Z"}
+{"kind": "http_error", "url": "https://trygghansa.teamtailor.com/jobs.rss", "status": 404, "ts": "2026-11-09T13:49:21Z"}
+{"kind": "http_error", "url": "https://api.lever.co/v0/postings/seb?mode=json", "status": 404, "ts": "2026-11-09T13:49:26Z"}
+{"kind": "http_error", "url": "https://jobs.brassring.com/TGnewUI/Search/home/HomeWithPreLoad?partnerid=25872&siteid=5512", "status": 500, "ts": "2026-11-09T13:49:48Z"}
+{"kind": "http_error", "url": "https://wd3.myworkdaysite.com/wday/cxs/wd3/Magna/jobs", "status": 422, "ts": "2026-11-09T13:49:51Z"}
+{"kind": "robots_disallow", "url": "https://career.cevt.se/jobs.rss", "rule": "robots.txt unreachable", "ts": "2026-11-09T13:49:52Z"}
+{"kind": "robots_disallow", "url": "https://api.smartrecruiters.com/v1/companies/HMGroup/postings", "rule": "Disallow: /", "ts": "2026-11-09T13:49:56Z"}
+{"kind": "robots_disallow", "url": "https://api.smartrecruiters.com/v1/companies/InterIKEAGroup/postings", "rule": "Disallow: /", "ts": "2026-11-09T13:49:59Z"}
+{"kind": "http_error", "url": "https://emp.jobylon.com/companies/1304/", "status": 404, "ts": "2026-11-09T13:50:14Z"}
+{"kind": "http_error", "url": "https://www.axfood.se/jobba-hos-oss/", "status": 404, "ts": "2026-11-09T13:50:15Z"}
+{"kind": "http_error", "url": "https://www.bonniernews.se/jobba-hos-oss", "status": 404, "ts": "2026-11-09T13:50:16Z"}
+{"kind": "robots_disallow", "url": "https://career.thunderfulgames.com/jobs.rss", "rule": "robots.txt unreachable", "ts": "2026-11-09T13:50:24Z"}
+{"kind": "http_error", "url": "https://emp.jobylon.com/jobs/380378-remedy-entertainment-senior-gameplay-animator/%7B$%20url%20$%7D", "status": 404, "ts": "2026-11-09T13:50:31Z"}
+{"kind": "robots_disallow", "url": "https://raysearchlabs.workbuster.com/", "rule": "robots.txt unreachable", "ts": "2026-11-09T13:50:33Z"}
+{"kind": "http_error", "url": "https://medical.sectra.com/about-sectra/careers/", "status": 404, "ts": "2026-11-09T13:50:36Z"}
+{"kind": "http_error", "url": "https://careers.eon.com/sverige/", "status": 403, "ts": "2026-11-09T13:50:41Z"}
+{"kind": "http_error", "url": "https://www.postnord.com/job-vacancies/", "status": 404, "ts": "2026-11-09T13:50:45Z"}
+{"kind": "http_error", "url": "https://www.visma.com/careers/open-positions/jobs.rss", "status": 404, "ts": "2026-11-09T13:50:50Z"}
+{"kind": "http_error", "url": "https://careerhub.qlik.com/api/apply/v2/jobs?domain=qlik.com&start=0&num=100&location=Sweden", "status": 403, "ts": "2026-11-09T13:50:51Z"}
+{"kind": "http_error", "url": "https://careers.tieto.com/sweden", "status": 404, "ts": "2026-11-09T13:50:56Z"}
+{"kind": "robots_disallow", "url": "https://api.smartrecruiters.com/v1/companies/AFRY/postings", "rule": "Disallow: /", "ts": "2026-11-09T13:50:57Z"}
+{"kind": "http_error", "url": "https://www.alten.se/career/", "status": 403, "ts": "2026-11-09T13:51:01Z"}
+{"kind": "http_error", "url": "https://emp.jobylon.com/jobs/%20(company%20feed;%20slug%20pattern%20%3Cid%3E-etteplan-%3Ctitle%3E)", "status": 404, "ts": "2026-11-09T13:51:06Z"}
+{"kind": "bad_rss", "url": "career.truesec.com", "ts": "2026-11-09T13:51:09Z"}
+{"kind": "http_error", "url": "https://tretton37.teamtailor.com/jobs.rss", "status": 404, "ts": "2026-11-09T13:51:12Z"}
+{"kind": "robots_disallow", "url": "https://api.smartrecruiters.com/v1/companies/Devoteam/postings", "rule": "Disallow: /", "ts": "2026-11-09T13:51:15Z"}
+{"kind": "robots_disallow", "url": "https://recruit.visma.com/External/OJCustomer3/AssignmentList.aspx?guidExtSoftware=194e0a26-3142-4c3b-970b-985327b3523f", "rule": "Disallow: /", "ts": "2026-11-09T13:51:20Z"}
+{"kind": "http_error", "url": "https://web103.reachmee.com/ext/I007/497/main?site=2&lang=SE", "status": 404, "ts": "2026-11-09T13:52:01Z"}
+{"kind": "http_error", "url": "https://web103.reachmee.com/ext/I011/853/main?site=6&lang=SE", "status": 404, "ts": "2026-11-09T13:52:43Z"}
+{"kind": "http_error", "url": "https://www.lantmateriet.se/sv/om-lantmateriet/jobba-hos-oss/lediga-jobb/%7B%7BUrl%7D%7D", "status": 404, "ts": "2026-11-09T13:52:48Z"}
+{"kind": "robots_disallow", "url": "https://careers.finshark.io/jobs", "rule": "robots.txt unreachable", "ts": "2026-11-09T13:53:02Z"}
