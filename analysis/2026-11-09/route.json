@@ -1,0 +1,276 @@
+[
+ {
+  "step": 1,
+  "skill": "git",
+  "label": "Git",
+  "layer": 1,
+  "roi": 1.928,
+  "needs": [],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 5
+ },
+ {
+  "step": 2,
+  "skill": "aitools",
+  "label": "AI coding tools",
+  "layer": 1,
+  "roi": 1.426,
+  "needs": [],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 5
+ },
+ {
+  "step": 3,
+  "skill": "cicd",
+  "label": "CI/CD",
+  "layer": 2,
+  "roi": 1.169,
+  "needs": [
+   "git"
+  ],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 15
+ },
+ {
+  "step": 4,
+  "skill": "agile",
+  "label": "Agile/Scrum",
+  "layer": 1,
+  "roi": 1.166,
+  "needs": [],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 5
+ },
+ {
+  "step": 5,
+  "skill": "linux",
+  "label": "Linux",
+  "layer": 1,
+  "roi": 1.099,
+  "needs": [],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 20
+ },
+ {
+  "step": 6,
+  "skill": "python",
+  "label": "Python",
+  "layer": 1,
+  "roi": 0.828,
+  "needs": [],
+  "site": "algo",
+  "level": 0.0,
+  "cost_h": 60
+ },
+ {
+  "step": 7,
+  "skill": "llm",
+  "label": "LLM/GenAI",
+  "layer": 2,
+  "roi": 0.619,
+  "needs": [
+   "python"
+  ],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 30
+ },
+ {
+  "step": 8,
+  "skill": "agents",
+  "label": "AI agents/tool use",
+  "layer": 3,
+  "roi": 0.557,
+  "needs": [
+   "llm"
+  ],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 20
+ },
+ {
+  "step": 9,
+  "skill": "docker",
+  "label": "Docker/containers",
+  "layer": 2,
+  "roi": 0.536,
+  "needs": [
+   "linux"
+  ],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 15
+ },
+ {
+  "step": 10,
+  "skill": "rest",
+  "label": "REST/HTTP APIs",
+  "layer": 1,
+  "roi": 0.486,
+  "needs": [],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 15
+ },
+ {
+  "step": 11,
+  "skill": "tdd",
+  "label": "Testing/TDD",
+  "layer": 1,
+  "roi": 0.433,
+  "needs": [],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 15
+ },
+ {
+  "step": 12,
+  "skill": "ml",
+  "label": "Machine learning",
+  "layer": 2,
+  "roi": 0.367,
+  "needs": [
+   "python"
+  ],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 80
+ },
+ {
+  "step": 13,
+  "skill": "sql",
+  "label": "SQL",
+  "layer": 1,
+  "roi": 0.367,
+  "needs": [],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 40
+ },
+ {
+  "step": 14,
+  "skill": "observ",
+  "label": "Observability (Prometheus/Grafana/OTel)",
+  "layer": 2,
+  "roi": 0.327,
+  "needs": [
+   "linux"
+  ],
+  "site": "sd",
+  "level": 0.0,
+  "cost_h": 15
+ },
+ {
+  "step": 15,
+  "skill": "security",
+  "label": "Security (IAM/OWASP/crypto)",
+  "layer": 1,
+  "roi": 0.265,
+  "needs": [],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 40
+ },
+ {
+  "step": 16,
+  "skill": "c",
+  "label": "C",
+  "layer": 1,
+  "roi": 0.258,
+  "needs": [],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 80
+ },
+ {
+  "step": 17,
+  "skill": "devops",
+  "label": "DevOps/SRE",
+  "layer": 3,
+  "roi": 0.249,
+  "needs": [
+   "linux",
+   "cicd"
+  ],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 30
+ },
+ {
+  "step": 18,
+  "skill": "stats",
+  "label": "Statistics/analytics",
+  "layer": 1,
+  "roi": 0.247,
+  "needs": [],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 40
+ },
+ {
+  "step": 19,
+  "skill": "javascript",
+  "label": "JavaScript",
+  "layer": 1,
+  "roi": 0.233,
+  "needs": [],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 40
+ },
+ {
+  "step": 20,
+  "skill": "aws",
+  "label": "AWS",
+  "layer": 2,
+  "roi": 0.222,
+  "needs": [
+   "linux"
+  ],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 60
+ },
+ {
+  "step": 21,
+  "skill": "terraform",
+  "label": "Terraform/IaC",
+  "layer": 3,
+  "roi": 0.265,
+  "needs": [
+   "aws"
+  ],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 25
+ },
+ {
+  "step": 22,
+  "skill": "distributed",
+  "label": "Distributed systems",
+  "layer": 1,
+  "roi": 0.121,
+  "needs": [],
+  "site": "ds",
+  "level": 0.0,
+  "cost_h": 100
+ },
+ {
+  "step": 23,
+  "skill": "sysdesign",
+  "label": "System design/scalability",
+  "layer": 2,
+  "roi": 0.334,
+  "needs": [
+   "distributed"
+  ],
+  "site": "sd",
+  "level": 0.0,
+  "cost_h": 60
+ }
+]

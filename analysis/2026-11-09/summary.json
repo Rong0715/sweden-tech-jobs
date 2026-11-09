@@ -1,0 +1,28 @@
+{
+ "engineering_ads": 2456,
+ "all_listings": 7531,
+ "companies": 537,
+ "entry_ads": 257,
+ "by_seniority": {
+  "senior": 1131,
+  "mid": 1068,
+  "junior": 145,
+  "thesis": 83,
+  "graduate": 22,
+  "intern": 7
+ },
+ "by_tier": {
+  "other": 1114,
+  "consultancy": 527,
+  "mid": 347,
+  "top": 251,
+  "scaleup": 149,
+  "public": 68
+ },
+ "clusters": {
+  "modularity": 0.30276661356160095,
+  "edges": 712,
+  "nodes": 71
+ },
+ "platsbanken_share_ats": 0.10678488820354665
+}
