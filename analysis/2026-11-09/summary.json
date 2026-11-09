@@ -1,10 +1,10 @@
 {
- "engineering_ads": 2457,
- "all_listings": 7536,
+ "engineering_ads": 2454,
+ "all_listings": 7520,
  "companies": 537,
  "entry_ads": 257,
  "by_seniority": {
-  "senior": 1131,
+  "senior": 1128,
   "mid": 1069,
   "junior": 145,
   "thesis": 83,
@@ -13,16 +13,16 @@
  },
  "by_tier": {
   "other": 1115,
-  "consultancy": 527,
-  "mid": 347,
+  "consultancy": 526,
+  "mid": 345,
   "top": 251,
   "scaleup": 149,
   "public": 68
  },
  "clusters": {
-  "modularity": 0.302512801840772,
+  "modularity": 0.3024067226715404,
   "edges": 711,
   "nodes": 71
  },
- "platsbanken_share_ats": 0.10662047729022325
+ "platsbanken_share_ats": 0.10678488820354665
 }

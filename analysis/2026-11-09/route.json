@@ -15,7 +15,7 @@
   "skill": "aitools",
   "label": "AI coding tools",
   "layer": 1,
-  "roi": 1.426,
+  "roi": 1.424,
   "needs": [],
   "site": "",
   "level": 0.0,
@@ -26,7 +26,7 @@
   "skill": "cicd",
   "label": "CI/CD",
   "layer": 2,
-  "roi": 1.169,
+  "roi": 1.168,
   "needs": [
    "git"
   ],
@@ -39,7 +39,7 @@
   "skill": "agile",
   "label": "Agile/Scrum",
   "layer": 1,
-  "roi": 1.166,
+  "roi": 1.167,
   "needs": [],
   "site": "",
   "level": 0.0,
@@ -98,7 +98,7 @@
   "skill": "docker",
   "label": "Docker/containers",
   "layer": 2,
-  "roi": 0.536,
+  "roi": 0.535,
   "needs": [
    "linux"
   ],
@@ -130,6 +130,17 @@
  },
  {
   "step": 12,
+  "skill": "sql",
+  "label": "SQL",
+  "layer": 1,
+  "roi": 0.367,
+  "needs": [],
+  "site": "",
+  "level": 0.0,
+  "cost_h": 40
+ },
+ {
+  "step": 13,
   "skill": "ml",
   "label": "Machine learning",
   "layer": 2,
@@ -140,17 +151,6 @@
   "site": "",
   "level": 0.0,
   "cost_h": 80
- },
- {
-  "step": 13,
-  "skill": "sql",
-  "label": "SQL",
-  "layer": 1,
-  "roi": 0.367,
-  "needs": [],
-  "site": "",
-  "level": 0.0,
-  "cost_h": 40
  },
  {
   "step": 14,
@@ -170,7 +170,7 @@
   "skill": "security",
   "label": "Security (IAM/OWASP/crypto)",
   "layer": 1,
-  "roi": 0.266,
+  "roi": 0.265,
   "needs": [],
   "site": "",
   "level": 0.0,
@@ -181,7 +181,7 @@
   "skill": "c",
   "label": "C",
   "layer": 1,
-  "roi": 0.258,
+  "roi": 0.259,
   "needs": [],
   "site": "",
   "level": 0.0,
@@ -192,7 +192,7 @@
   "skill": "devops",
   "label": "DevOps/SRE",
   "layer": 3,
-  "roi": 0.249,
+  "roi": 0.248,
   "needs": [
    "linux",
    "cicd"
@@ -206,7 +206,7 @@
   "skill": "stats",
   "label": "Statistics/analytics",
   "layer": 1,
-  "roi": 0.247,
+  "roi": 0.248,
   "needs": [],
   "site": "",
   "level": 0.0,
