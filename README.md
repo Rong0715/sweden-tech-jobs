@@ -26,6 +26,23 @@ Labels are rules, so every decision can be audited:
 - `jobs/classify.py`: seniority (thesis, intern, graduate, junior, mid, senior; from the title, then years of experience), role family, Swedish-language requirement, EU-only, security-clearance and visa signals, ad language.
 - `tests/test_units.py` pins the tricky cases; `tests/make_synth.py` builds synthetic data with planted clusters and a planted trend as an end-to-end check.
 
+## How accurate the labels are
+
+Two blind reviewers read ads in full and listed the skills each one asks for; their labels were
+compared with the tagger's. Intervals are Wilson 95%.
+
+| Round | Ads | Skill precision | Skill recall | Ads labelled software that are software jobs |
+|---|---|---|---|---|
+| 1, tagger v1 (used to tune v2) | 33 | 0.885 (0.820–0.929) | 0.800 (0.728–0.857) | 19/33 |
+| 2, tagger v2, held out | 34 | 0.925 (0.885–0.952) | 0.914 (0.872–0.943) | 30/34 |
+
+- Weakest skills in round 2: system design (2 of 8 tags correct, so its share is overstated
+  roughly 1.5 to 3 times), Docker (5 of 9 mentions found), security (9 right, 3 wrong, 4 missed).
+- Swedish-required agrees with reviewers on 29/34 ads, ad language on 34/34.
+- Of 30 ads the role filter dropped as "other engineering", reviewers judged 5 to be software
+  jobs (17%, 7–34%), 4 of them borderline (test leads, system configuration). Applied to all
+  dropped ads, the filter misses roughly 140 to 660 software ads next to 2,457 kept.
+
 ## Outputs
 
 The `data` branch holds aggregated statistics only, one folder per run.
