@@ -23,7 +23,7 @@ def main():
     df = df[df.family.isin(classify.ENG_FAMILIES) & (df.tier != "recruiter") & df.url.fillna("").str.startswith("https://")]
     s = df.sample(n=min(a.n, len(df)), random_state=a.seed)
     print("TAGGER_SAMPLE_BEGIN")
-    print(s[["uid", "source", "url", "title", "company", "family", "seniority", "skills"]].to_csv(index=False), end="")
+    print(s[["uid", "source", "url", "title", "company", "family", "seniority", "skills", "swedish_required", "ad_lang"]].to_csv(index=False), end="")
     print("TAGGER_SAMPLE_END")
 
 

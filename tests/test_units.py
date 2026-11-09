@@ -91,6 +91,29 @@ def test_robots():
     assert Robots("").can_fetch(ua, "https://x.com/") and not Robots(disallow_all=True).can_fetch(ua, "https://x.com/")
 
 
+def test_tagger_v2():
+    """Cases from the blind hand check of 40 ads (Nov 2026)."""
+    from jobs.skills import extract as ex
+    yes = {"Vi bygger AI-agenter för kundtjänst": "agents", "MQTT och OPC UA mot maskiner": "mq",
+           "Analys i SIEM och SOAR-plattformar": "security", "Script i PowerShell": "bash",
+           "Java, Spring, Kafka och Kubernetes": "spring", "Build APIs in Python and Go": "rest",
+           "experiment tracking and model registry": "mlops", "entity extraction from documents": "nlp",
+           "Automated tests with Playwright": "tdd", "Pipelines in Azure DevOps": "cicd"}
+    for text, skill in yes.items():
+        assert skill in ex(text), (text, skill)
+    no = {"Statistiska centralbyrån söker IT-supporttekniker": "stats", "Pipelines in Azure DevOps": "devops",
+          "API production in a GMP pharma plant": "rest", "Microsoft Semantic Kernel": "os",
+          "Claude Svensson, rekryterare": "llm", "control algorithms for motors": "dsa"}
+    for text, skill in no.items():
+        assert skill not in ex(text), (text, skill)
+    g = classify.gate_family
+    assert g("software", "Kvalitetsingenjör", []) == "other_eng"
+    assert g("platform", "Labbtekniker", []) == "platform" or classify.role_family("Labbtekniker") != "platform"
+    assert g("software", "Senior systemingenjör", ["python", "linux"]) == "software"
+    assert g("software", "Backend Developer", []) == "software"
+    assert g("security", "Lösningsarkitekt", ["security"]) == "security"
+
+
 if __name__ == "__main__":
     for k, v in list(globals().items()):
         if k.startswith("test_"):

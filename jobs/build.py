@@ -78,10 +78,11 @@ def label(p):
     full = f"{p.get('title','')}\n{text}"
     sen, yrs = classify.seniority(p.get("title"), text)
     sig = classify.signals(text, p.get("must_langs"))
+    sk = skills.extract(full)
     return dict(
         seniority=sen, entry=sen in classify.ENTRY, years_req=yrs,
-        family=classify.role_family(p.get("title"), text),
-        skills="|".join(skills.extract(full)),
+        family=classify.gate_family(classify.role_family(p.get("title"), text), p.get("title"), sk),
+        skills="|".join(sk),
         **{k: v for k, v in sig.items()},
         text_len=len(text),
     )

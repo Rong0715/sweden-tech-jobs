@@ -74,7 +74,7 @@ ENTRY = {"thesis", "intern", "graduate", "junior"}
 _FAM = [
     ("ml_ai", r"machine learning|\bml\b|\bai\b|artificial intelligence|data scien|deep learning|\bllm|genai|computer vision|nlp|research (?:engineer|scientist)|applied scien|mlops|maskininlärning|AI-"),
     ("data", r"data engineer|dataingenjör|analytics engineer|data platform|\betl\b|data warehouse|big data|data architect|bi[- ]developer|business intelligence|data analyst|dataanalytiker"),
-    ("platform", r"platform|devops|\bsre\b|site reliability|infrastructure|infrastruktur|cloud|moln|kubernetes|systems? engineer|drift|reliability|network engineer|nätverk|it-tekniker|tekniker"),
+    ("platform", r"platform|devops|\bsre\b|site reliability|infrastructure|infrastruktur|cloud|moln|kubernetes|systems? engineer|drift|reliability|network engineer|nätverk"),
     ("security", r"security|säkerhet|cyber|pentest|soc analyst|appsec|\biam\b"),
     ("embedded", r"embedded|inbyggd|firmware|fpga|hardware|asic|baseband|dsp|signal processing|rf engineer|automotive software|autosar|realtid"),
     ("mobile", r"\bios\b|android|mobile|mobil(?:utvecklare|app)"),
@@ -99,6 +99,35 @@ def role_family(title, text=""):
         if rx.search(head):
             return name
     return "other"
+
+
+# Families picked from a generic title word ("ingenjör", "engineer", "tekniker", "säkerhet") or from
+# the first lines of the ad text are often mechanical, quality, lab or support jobs. A blind hand
+# check of 40 ads (Nov 2026) found 14 of 33 "engineering" ads were not software roles. So such ads
+# count as engineering only when the title itself is clearly a software/IT-engineering title or the
+# ad names at least two core software skills; otherwise they become "other_eng".
+_SW_TITLE = re.compile(
+    r"software|mjukvar|\bsw\b|utvecklare|developer|programmer|programmerare|kodare|\bdevops\b|\bsre\b|"
+    r"site reliability|cloud|moln|kubernetes|platform engineer|plattformsingenjör|\bdata\b|dataingenjör|"
+    r"dataanalytiker|data analyst|back[- ]?end|front[- ]?end|full[- ]?stack|machine learning|\bml\b|\bai\b|AI-|"
+    r"maskininlärning|data scien|security engineer|säkerhetsingenjör|cyber|it-säkerhet|informationssäkerhet|"
+    r"pentest|\bsoc\b|appsec|embedded|inbyggd|firmware|fpga|test ?automat|qa engineer|sdet|"
+    r"(?:solution|lösnings|system|it|cloud|moln|software|mjukvaru|enterprise|data|ai|integration|security|säkerhets)[- ]?(?:arkitekt|architect)|"
+    r"systemutvecklare|it[- ]?ingenjör|network engineer|nätverksingenjör|\bml ?ops|\bllm|genai", re.I)
+_CORE_CATS = {"lang", "frontend", "backend", "arch", "data", "cloud", "ml", "tool"}
+_CORE_EXTRA = {"docker", "k8s", "terraform", "cicd", "linux", "observ", "ansible", "embedded", "gpu", "os"}
+_SOFT_FAMS = {"software", "platform", "security", "qa", "embedded", "ml_ai", "data", "mobile", "frontend", "backend", "fullstack"}
+
+
+def gate_family(family, title, skill_ids):
+    """Demote an engineering family to 'other_eng' unless the title or the skills show a software core."""
+    if family not in _SOFT_FAMS:
+        return family
+    if _SW_TITLE.search(title or ""):
+        return family
+    from .skills import SKILLS
+    core = [s for s in skill_ids if SKILLS.get(s, {}).get("cat") in _CORE_CATS or s in _CORE_EXTRA]
+    return family if len(core) >= 2 else "other_eng"
 
 
 # role families we treat as "engineering" for skill statistics

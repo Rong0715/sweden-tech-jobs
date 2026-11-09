@@ -159,12 +159,13 @@ def history_rows(lines):
         langs = [l.get("label", "") for l in (_get(h, "must_have", "languages") or []) if isinstance(l, dict)]
         sig = classify.signals(text, langs)
         pub = (h.get("publication_date") or "")[:10]
+        sk = skills.extract(full)
         yield dict(
             id=str(h.get("id", "")), date=pub, year=int(pub[:4]) if pub[:4].isdigit() else None,
             employer=_get(h, "employer", "name") or "", org_nr=_get(h, "employer", "organization_number") or "",
             title=title[:200], occupation=_get(h, "occupation", "label") or "", field_it=field_it,
-            family=classify.role_family(title, text), seniority=sen, years_req=yrs,
-            skills="|".join(skills.extract(full)), sv_req=sig["swedish_required"], eu_only=sig["eu_only"],
+            family=classify.gate_family(classify.role_family(title, text), title, sk), seniority=sen, years_req=yrs,
+            skills="|".join(sk), sv_req=sig["swedish_required"], eu_only=sig["eu_only"],
             clearance=sig["clearance"], ad_lang=sig["ad_lang"], remote=sig["remote"],
             region=_get(h, "workplace_address", "region") or "", municipality=_get(h, "workplace_address", "municipality") or "",
             vacancies=h.get("number_of_vacancies") or 1, text_len=len(text),
