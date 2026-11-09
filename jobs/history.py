@@ -56,8 +56,11 @@ def main():
                 for line in it:
                     n_lines += 1
                     yield line
-            rows.extend(jobtech.history_rows(counted(jobtech.iter_jsonl_zip(path))))
+            shapes = []
+            rows.extend(jobtech.history_rows(counted(jobtech.iter_jsonl_zip(path)), shapes))
             stats.setdefault(str(y), {})[name] = n_lines
+            for sh in shapes[:1]:
+                print(f"{name} record shape: {json.dumps(sh, ensure_ascii=False)}")
             if not a.keep_zip:
                 os.remove(path)
         if not rows:
@@ -65,7 +68,7 @@ def main():
             continue
         df = pd.DataFrame(rows)
         df.to_parquet(dest, index=False)
-        print(f"{y}: {len(df)} tech ads ({int(df.field_it.sum())} in Data/IT) from {files} in {time.time()-t0:.0f}s")
+        print(f"{y}: {len(df)} tech ads ({int(df.field_it.sum())} in Data/IT, {int(df.sw_title.sum())} with a software title) from {files} in {time.time()-t0:.0f}s")
     json.dump(stats, open(os.path.join(a.out, "lines_per_file.json"), "w"), indent=1)
 
 

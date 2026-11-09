@@ -14,7 +14,7 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: history
+  group: history-trends
   cancel-in-progress: false
 jobs:
   history:

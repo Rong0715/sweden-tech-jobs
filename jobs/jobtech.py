@@ -137,21 +137,60 @@ def _get(d, *keys):
     return d
 
 
-def history_rows(lines):
+# Raw-line prefilter: any of these anywhere in the line sends it to the JSON parser. Kept broad
+# because the bulk files' layout differs between years (2023-2025 carry no Data/IT field marker
+# where 2020-2022 and 2026 do), and a year-dependent filter would create fake trends.
+_PRE = re.compile(r"apaJ_2ja_LuF|Data\\?/IT|" + TECH_TITLE.pattern + "|" + classify._SW_TITLE.pattern, re.I)
+_IT_GROUP = re.compile(r"systemutvecklare|mjukvaru|IT-arkitekt|systemanalytiker|systemtestare|IT-säkerhet|IT-specialist|"
+                       r"systemförvaltare|spel och digitala|drifttekniker|nätverks- och systemtekniker|data/it", re.I)
+
+
+def _find(o, depth=0):
+    """Yield every dict nested anywhere in o (the bulk files nest taxonomy concepts differently by year)."""
+    if depth > 6:
+        return
+    if isinstance(o, dict):
+        yield o
+        for v in o.values():
+            yield from _find(v, depth + 1)
+    elif isinstance(o, list):
+        for v in o:
+            yield from _find(v, depth + 1)
+
+
+def field_is_it(h):
+    for k in ("occupation_field", "occupation_group", "occupation"):
+        for d in _find(h.get(k)):
+            if d.get("concept_id") == "apaJ_2ja_LuF" or d.get("label") == "Data/IT":
+                return True
+            if k == "occupation_group" and _IT_GROUP.search(str(d.get("label") or "")):
+                return True
+            if str(d.get("legacy_ams_taxonomy_id") or "")[:3] in ("251", "351") and k == "occupation_group":
+                return True
+    return False
+
+
+def shape(h):
+    """Keys and occupation sub-structure of one record, for the run log (no ad text)."""
+    occ = {k: h.get(k) for k in ("occupation", "occupation_group", "occupation_field") if k in h}
+    return dict(keys=sorted(h.keys()), occupation=json.dumps(occ, ensure_ascii=False)[:600])
+
+
+def history_rows(lines, shapes=None):
     """Yield compact feature rows from raw JSONL lines of a bulk file."""
     for line in lines:
-        is_it = any(m in line for m in IT_MARKERS)
-        if not is_it and not TECH_TITLE.search(line[:4000]):
+        if not _PRE.search(line):
             continue
         try:
             h = json.loads(line)
         except ValueError:
             continue
+        if shapes is not None and len(shapes) < 2:
+            shapes.append(shape(h))
         title = h.get("headline") or ""
-        fid = _get(h, "occupation_field", "concept_id") or ""
-        flab = _get(h, "occupation_field", "label") or ""
-        field_it = fid == "apaJ_2ja_LuF" or flab == "Data/IT"
-        if not field_it and not TECH_TITLE.search(title):
+        field_it = field_is_it(h)
+        sw_title = bool(classify._SW_TITLE.search(title))
+        if not field_it and not TECH_TITLE.search(title) and not sw_title:
             continue
         text = (_get(h, "description", "text") or "")
         full = title + "\n" + text
@@ -168,5 +207,5 @@ def history_rows(lines):
             skills="|".join(sk), sv_req=sig["swedish_required"], eu_only=sig["eu_only"],
             clearance=sig["clearance"], ad_lang=sig["ad_lang"], remote=sig["remote"],
             region=_get(h, "workplace_address", "region") or "", municipality=_get(h, "workplace_address", "municipality") or "",
-            vacancies=h.get("number_of_vacancies") or 1, text_len=len(text),
+            vacancies=h.get("number_of_vacancies") or 1, text_len=len(text), sw_title=sw_title,
         )

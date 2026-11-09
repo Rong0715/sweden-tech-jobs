@@ -256,19 +256,19 @@ def logit_fit(years, k, n):
     X = np.column_stack([np.ones_like(x), x])
     beta = np.array([math.log((k.sum() + .5) / (n.sum() - k.sum() + .5)), 0.0])
     for _ in range(50):
-        eta = X @ beta
+        eta = np.clip(X @ beta, -30, 30)
         p = 1 / (1 + np.exp(-eta))
         W = n * p * (1 - p)
         z = eta + (k - n * p) / np.maximum(W, 1e-9)
         XtW = X.T * W
-        new = np.linalg.solve(XtW @ X, XtW @ z)
+        new = np.linalg.solve(XtW @ X + 1e-9 * np.eye(2), XtW @ z)
         if np.max(np.abs(new - beta)) < 1e-10:
             beta = new
             break
         beta = new
     p = 1 / (1 + np.exp(-(X @ beta)))
     W = n * p * (1 - p)
-    cov = np.linalg.inv((X.T * W) @ X)
+    cov = np.linalg.pinv((X.T * W) @ X)
     pearson = np.sum((k - n * p) ** 2 / np.maximum(n * p * (1 - p), 1e-9))
     df_ = max(len(x) - 2, 1)
     phi = max(1.0, pearson / df_)
@@ -292,7 +292,11 @@ def history_tables(hist_dir):
     h = pd.concat([pd.read_parquet(f) for f in files], ignore_index=True)
     h = h[h.year.notna()]
     h["year"] = h.year.astype(int)
-    it = h[h.field_it & h.family.isin(classify.ENG_FAMILIES)].copy()
+    # The population must be defined the same way every year: the Data/IT occupation field is
+    # missing from some years' bulk files, so trends use ads with a software/IT-engineering title.
+    if "sw_title" not in h:
+        h["sw_title"] = h.title.fillna("").str.contains(classify._SW_TITLE)
+    it = h[h.sw_title & h.family.isin(classify.ENG_FAMILIES)].copy()
     M, ids = skill_matrix(it)
     trows = []
     years = sorted(it.year.unique())
