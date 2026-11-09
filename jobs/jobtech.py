@@ -176,10 +176,37 @@ def shape(h):
     return dict(keys=sorted(h.keys()), occupation=json.dumps(occ, ensure_ascii=False)[:600])
 
 
+_HEADLINE = re.compile(r'"headline"\s*:\s*"((?:[^"\\]|\\.)*)"')
+_LEGACY_IT = re.compile(r'legacy_ams_taxonomy_id"\s*:\s*"?(?:251|351)')
+
+
+def _maybe_tech(line):
+    """Cheap test that never drops an ad history_rows would keep.
+
+    Only the headline and the occupation codes decide whether an ad is kept, so the
+    title regexes run on the headline alone, not on the whole ad text (which mentions
+    "data" or "cloud" in most ads and made the old whole-line test both slow and useless).
+    """
+    if "apaJ_2ja_LuF" in line or "Data/IT" in line or "Data\\/IT" in line or _LEGACY_IT.search(line):
+        return True
+    m = _HEADLINE.search(line)
+    if not m:
+        return True                       # unknown layout: let the full parse decide
+    try:
+        title = json.loads('"' + m.group(1) + '"')
+    except ValueError:
+        return True
+    if TECH_TITLE.search(title) or classify._SW_TITLE.search(title):
+        return True
+    if "\\u00" in line:                # escaped å ä ö in occupation labels
+        line = line.replace("\\u00e4", "ä").replace("\\u00f6", "ö").replace("\\u00e5", "å")
+    return bool(_IT_GROUP.search(line))   # occupation_group labels, checked properly after parsing
+
+
 def history_rows(lines, shapes=None):
     """Yield compact feature rows from raw JSONL lines of a bulk file."""
     for line in lines:
-        if not _PRE.search(line):
+        if not _maybe_tech(line):
             continue
         try:
             h = json.loads(line)
