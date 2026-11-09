@@ -91,4 +91,6 @@ history monthly (`history.yml`).
 - A few large employers post many similar ads (Saab, Ericsson); `robust.csv` shows when one employer carries a skill.
 - Recruiters and consultancies repost; recruiter ads are excluded from skill statistics.
 - A skill mentioned is not a skill required, and seniority from text is a heuristic.
+- In the yearly history, 2022 reads high for almost every skill and 2023 low. 2022 ads are longer, but the jump survives
+  standardising for ad length (`.github/diag_trends.py`), so read multi-year slopes, not single-year changes.
 - Learning costs in `skills.py` are judgement inputs to the ranking, not data.
