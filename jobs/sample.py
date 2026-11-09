@@ -21,7 +21,7 @@ def main():
     ap.add_argument("--n-dropped", type=int, default=30)
     a = ap.parse_args()
     df_all = pd.read_parquet(f"{a.snapshot}/listings.parquet")
-    df = df_all[df.family.isin(classify.ENG_FAMILIES) & (df.tier != "recruiter") & df.url.fillna("").str.startswith("https://")]
+    df = df_all[df_all.family.isin(classify.ENG_FAMILIES) & (df_all.tier != "recruiter") & df_all.url.fillna("").str.startswith("https://")]
     s = df.sample(n=min(a.n, len(df)), random_state=a.seed)
     print("TAGGER_SAMPLE_BEGIN")
     print(s[["uid", "source", "url", "title", "company", "family", "seniority", "skills", "swedish_required", "ad_lang"]].to_csv(index=False), end="")
