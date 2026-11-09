@@ -46,3 +46,19 @@ for y in sorted(it.year.unique()):
         dstd = float(np.nansum(sbd.values * ref.values) / ref[sbd.notna()].sum())
         print(f"STDCSV,{y},{sid},{int(col.sum())},{int(m.sum())},{raw:.5f},{std:.5f},{dstd:.5f}")
 print("EDGES," + ",".join(f"{e:.0f}" for e in edges))
+
+# Does one employer carry a skill in a year? Share with each employer capped at 10 ads a year,
+# and the largest employer's part of the ads that mention the skill.
+print("CAPCSV,year,skill,k,capped_share,top_employer_part,employers")
+for y in sorted(it.year.unique()):
+    m = (it.year == y).values
+    g = it[m].reset_index(drop=True)
+    rank = g.groupby("employer").cumcount()
+    capm = (rank < 10).values
+    for j, sid in enumerate(ids):
+        col = M[m, j]
+        k = int(col.sum())
+        if k == 0:
+            continue
+        emp = g.employer[col == 1].value_counts()
+        print(f"CAPCSV,{y},{sid},{k},{col[capm].mean():.5f},{emp.iloc[0]/k:.4f},{len(emp)}")
