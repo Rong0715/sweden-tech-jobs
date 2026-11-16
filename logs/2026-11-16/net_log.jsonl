@@ -1,0 +1,101 @@
+{"kind": "robots_disallow", "url": "https://api.smartrecruiters.com/v1/companies/Ubisoft2/postings", "rule": "Disallow: /", "ts": "2026-11-16T13:32:52Z"}
+{"kind": "http_error", "url": "https://www.google.com/about/careers/applications/jobs/results/jobs/results/126055959020610246-communications-manager-technical-infrastructure-emea?location=Stockholm,+Sweden", "status": 404, "ts": "2026-11-16T13:33:04Z"}
+{"kind": "http_error", "url": "https://www.google.com/about/careers/applications/jobs/results/jobs/results/132757516751643334-data-cloud-sales-specialist-emea-north?location=Stockholm,+Sweden", "status": 404, "ts": "2026-11-16T13:33:05Z"}
+{"kind": "http_error", "url": "https://www.google.com/about/careers/applications/jobs/results/jobs/results/108032878234739398-field-sales-representative-enterprise-growth-google-cloud-english-swedish?location=Stockholm,+Sweden", "status": 404, "ts": "2026-11-16T13:33:06Z"}
+{"kind": "http_error", "url": "https://www.google.com/about/careers/applications/jobs/results/jobs/results/86733690079453894-student-researcher-2027?location=Stockholm,+Sweden", "status": 404, "ts": "2026-11-16T13:33:07Z"}
+{"kind": "http_error", "url": "https://www.google.com/about/careers/applications/jobs/results/jobs/results/132508376436220614-senior-sales-customer-engineer-workspace-gcp-nordics?location=Stockholm,+Sweden", "status": 404, "ts": "2026-11-16T13:33:08Z"}
+{"kind": "http_error", "url": "https://www.google.com/about/careers/applications/jobs/results/jobs/results/121191495435723462-senior-software-engineer-google-meet-security?location=Stockholm,+Sweden", "status": 404, "ts": "2026-11-16T13:33:09Z"}
+{"kind": "robots_disallow", "url": "https://api.smartrecruiters.com/v1/companies/Visa/postings", "rule": "Disallow: /", "ts": "2026-11-16T13:33:14Z"}
+{"kind": "gave_up", "url": "https://nvidia.wd5.myworkdayjobs.com/wday/cxs/nvidia/NVIDIAExternalCareerSite/jobs", "error": "HTTP 429", "ts": "2026-11-16T13:33:35Z"}
+{"kind": "robots_disallow", "url": "unknown", "rule": "robots.txt unreachable", "ts": "2026-11-16T13:33:40Z"}
+{"kind": "robots_disallow", "url": "https://careers-zenimax.icims.com/jobs/3043/senior-gameplay-programmer/job", "rule": "Disallow: /", "ts": "2026-11-16T13:33:40Z"}
+{"kind": "http_error", "url": "https://emp.jobylon.com/jobs/254157-heart-aerospace-senior-embedded-software-engineer-battery-systems/", "status": 404, "ts": "2026-11-16T13:33:42Z"}
+{"kind": "robots_disallow", "url": "unknown", "rule": "robots.txt unreachable", "ts": "2026-11-16T13:33:44Z"}
+{"kind": "http_error", "url": "https://careers.readly.com/jobs.rss", "status": 404, "ts": "2026-11-16T13:33:45Z"}
+{"kind": "gave_up", "url": "https://paypal.wd1.myworkdayjobs.com/wday/cxs/paypal/jobs/jobs", "error": "HTTP 429", "ts": "2026-11-16T13:33:45Z"}
+{"kind": "gave_up", "url": "https://workday.wd5.myworkdayjobs.com/wday/cxs/workday/Workday/jobs", "error": "HTTP 429", "ts": "2026-11-16T13:33:46Z"}
+{"kind": "http_error", "url": "https://api.lever.co/v0/postings/seb?mode=json", "status": 404, "ts": "2026-11-16T13:33:47Z"}
+{"kind": "http_error", "url": "https://trygghansa.teamtailor.com/jobs.rss", "status": 404, "ts": "2026-11-16T13:33:54Z"}
+{"kind": "gave_up", "url": "https://nasdaq.wd1.myworkdayjobs.com/wday/cxs/nasdaq/Global_External_Site/jobs", "error": "HTTP 429", "ts": "2026-11-16T13:34:23Z"}
+{"kind": "http_error", "url": "https://jobs.brassring.com/TGnewUI/Search/home/HomeWithPreLoad?partnerid=25872&siteid=5512", "status": 500, "ts": "2026-11-16T13:34:28Z"}
+{"kind": "gave_up", "url": "https://sandvik.wd3.myworkdayjobs.com/wday/cxs/sandvik/sandvik-jobs/jobs", "error": "HTTP 429", "ts": "2026-11-16T13:34:31Z"}
+{"kind": "http_error", "url": "https://wd3.myworkdaysite.com/wday/cxs/wd3/Magna/jobs", "status": 422, "ts": "2026-11-16T13:34:33Z"}
+{"kind": "robots_disallow", "url": "https://career.cevt.se/jobs.rss", "rule": "robots.txt unreachable", "ts": "2026-11-16T13:34:33Z"}
+{"kind": "gave_up", "url": "https://husqvarnagroup.wd3.myworkdayjobs.com/wday/cxs/husqvarnagroup/External_Career_Site/jobs", "error": "HTTP 429", "ts": "2026-11-16T13:34:35Z"}
+{"kind": "robots_disallow", "url": "https://api.smartrecruiters.com/v1/companies/HMGroup/postings", "rule": "Disallow: /", "ts": "2026-11-16T13:34:37Z"}
+{"kind": "gave_up", "url": "https://if.wd502.myworkdayjobs.com/wday/cxs/if/Careers/job/Nordic/Network-Security-Engineer_JobReqID11688", "error": "HTTP 429", "ts": "2026-11-16T13:34:37Z"}
+{"kind": "robots_disallow", "url": "https://api.smartrecruiters.com/v1/companies/InterIKEAGroup/postings", "rule": "Disallow: /", "ts": "2026-11-16T13:34:40Z"}
+{"kind": "gave_up", "url": "https://hitachi.wd1.myworkdayjobs.com/wday/cxs/hitachi/hitachi/jobs", "error": "HTTP 429", "ts": "2026-11-16T13:34:52Z"}
+{"kind": "http_error", "url": "https://www.axfood.se/jobba-hos-oss/", "status": 404, "ts": "2026-11-16T13:34:55Z"}
+{"kind": "http_error", "url": "https://emp.jobylon.com/companies/1304/", "status": 404, "ts": "2026-11-16T13:34:55Z"}
+{"kind": "http_error", "url": "https://www.bonniernews.se/jobba-hos-oss", "status": 404, "ts": "2026-11-16T13:34:56Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Stockholm---Solna/Kvalitetschef_REQ_47217-1", "error": "HTTP 429", "ts": "2026-11-16T13:34:56Z"}
+{"kind": "robots_disallow", "url": "https://career.thunderfulgames.com/jobs.rss", "rule": "robots.txt unreachable", "ts": "2026-11-16T13:35:00Z"}
+{"kind": "robots_disallow", "url": "https://raysearchlabs.workbuster.com/", "rule": "robots.txt unreachable", "ts": "2026-11-16T13:35:05Z"}
+{"kind": "http_error", "url": "https://emp.jobylon.com/jobs/380378-remedy-entertainment-senior-gameplay-animator/%7B$%20url%20$%7D", "status": 404, "ts": "2026-11-16T13:35:05Z"}
+{"kind": "http_error", "url": "https://medical.sectra.com/about-sectra/careers/", "status": 404, "ts": "2026-11-16T13:35:07Z"}
+{"kind": "http_error", "url": "https://careers.eon.com/sverige/", "status": 403, "ts": "2026-11-16T13:35:11Z"}
+{"kind": "http_error", "url": "https://www.postnord.com/job-vacancies/", "status": 404, "ts": "2026-11-16T13:35:13Z"}
+{"kind": "http_error", "url": "https://www.visma.com/careers/open-positions/jobs.rss", "status": 404, "ts": "2026-11-16T13:35:15Z"}
+{"kind": "http_error", "url": "https://careers.tieto.com/sweden", "status": 404, "ts": "2026-11-16T13:35:23Z"}
+{"kind": "robots_disallow", "url": "https://api.smartrecruiters.com/v1/companies/AFRY/postings", "rule": "Disallow: /", "ts": "2026-11-16T13:35:27Z"}
+{"kind": "http_error", "url": "https://www.alten.se/career/", "status": 403, "ts": "2026-11-16T13:35:29Z"}
+{"kind": "http_error", "url": "https://emp.jobylon.com/jobs/%20(company%20feed;%20slug%20pattern%20%3Cid%3E-etteplan-%3Ctitle%3E)", "status": 404, "ts": "2026-11-16T13:35:30Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Linkping---Gelbgjutaregatan-2/Saab-Dynamics-vxer-och-vi-sker-strategiska-inkpare-fr-att-jobba-med-vra-nya-frmgor-_REQ_47185", "error": "HTTP 429", "ts": "2026-11-16T13:35:30Z"}
+{"kind": "bad_rss", "url": "career.truesec.com", "ts": "2026-11-16T13:35:31Z"}
+{"kind": "gave_up", "url": "https://elekta.wd3.myworkdayjobs.com/wday/cxs/elekta/Elekta_Careers/jobs", "error": "HTTP 429", "ts": "2026-11-16T13:35:39Z"}
+{"kind": "http_error", "url": "https://tretton37.teamtailor.com/jobs.rss", "status": 404, "ts": "2026-11-16T13:35:42Z"}
+{"kind": "gave_up", "url": "https://if.wd502.myworkdayjobs.com/wday/cxs/if/Careers/job/Stockholm/Full-Stack-Developer---Digital-Sales_JobReqID11598-1", "error": "HTTP 429", "ts": "2026-11-16T13:35:42Z"}
+{"kind": "robots_disallow", "url": "https://api.smartrecruiters.com/v1/companies/Devoteam/postings", "rule": "Disallow: /", "ts": "2026-11-16T13:35:46Z"}
+{"kind": "robots_disallow", "url": "https://recruit.visma.com/External/OJCustomer3/AssignmentList.aspx?guidExtSoftware=194e0a26-3142-4c3b-970b-985327b3523f", "rule": "Disallow: /", "ts": "2026-11-16T13:35:50Z"}
+{"kind": "gave_up", "url": "https://accenture.wd103.myworkdayjobs.com/wday/cxs/accenture/AccentureCareers/jobs", "error": "HTTP 429", "ts": "2026-11-16T13:35:59Z"}
+{"kind": "http_error", "url": "https://web103.reachmee.com/ext/I007/497/main?site=2&lang=SE", "status": 404, "ts": "2026-11-16T13:36:11Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Combitech_careers/job/Bromma---Gustavslundsvgen-42/DevOps--och-DevSecOps-ingenjrer_REQ_45941", "error": "HTTP 429", "ts": "2026-11-16T13:36:12Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Linkping---Brderna-Ugglas-Gata/Verktygsansvarig-inom-flygunderhll_REQ_44955-2", "error": "HTTP 429", "ts": "2026-11-16T13:36:13Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Combitech_careers/job/Bromma---Gustavslundsvgen-42/Molningenjr-med-efarenhet-av-Cloud-Native-arkitektur_REQ_45940-1", "error": "HTTP 429", "ts": "2026-11-16T13:36:47Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Linkping---Brderna-Ugglas-Gata/Head-of-Training-Management_REQ_47041", "error": "HTTP 429", "ts": "2026-11-16T13:36:48Z"}
+{"kind": "http_error", "url": "https://web103.reachmee.com/ext/I011/853/main?site=6&lang=SE", "status": 404, "ts": "2026-11-16T13:37:02Z"}
+{"kind": "http_error", "url": "https://www.lantmateriet.se/sv/om-lantmateriet/jobba-hos-oss/lediga-jobb/%7B%7BUrl%7D%7D", "status": 404, "ts": "2026-11-16T13:37:03Z"}
+{"kind": "robots_disallow", "url": "https://careers.finshark.io/jobs", "rule": "robots.txt unreachable", "ts": "2026-11-16T13:37:18Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Stockholm---Solna/Electronics-Engineer_REQ_45409", "error": "HTTP 429", "ts": "2026-11-16T13:37:25Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Combitech_careers/job/Arboga---Kungsrsvgen-60/Installationstekniker_REQ_47270", "error": "HTTP 429", "ts": "2026-11-16T13:37:27Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Linkping---Gelbgjutaregatan-2/Systemskerhetsingenjr_REQ_45325-1", "error": "HTTP 429", "ts": "2026-11-16T13:38:03Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Combitech_careers/job/Linkping---Universitetsvgen-14/Senior-Mjukvaruutvecklare_REQ_47228", "error": "HTTP 429", "ts": "2026-11-16T13:38:05Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Combitech_careers/job/Linkping---Universitetsvgen-14/Systemutvecklare-inom-Computer-Vision--AI-och-bildbehandling_REQ_47233-1", "error": "HTTP 429", "ts": "2026-11-16T13:38:41Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Gteborg/Plattformsutvecklare_REQ_47194", "error": "HTTP 429", "ts": "2026-11-16T13:38:42Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Combitech_careers/job/Arboga---Kungsrsvgen-60/Konsultenhetschef-inom-verksamhetsstd-och-utveckling_REQ_47105", "error": "HTTP 429", "ts": "2026-11-16T13:39:17Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Stockholm---Jrflla/Testingenjr-inom-elektronik_REQ_46917-1", "error": "HTTP 429", "ts": "2026-11-16T13:39:18Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Huskvarna---Jnkping/Kontrollant-inom-ofrstrande-provning_REQ_45033", "error": "HTTP 429", "ts": "2026-11-16T13:39:51Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Combitech_careers/job/Linkping---Universitetsvgen-14/Konsultenhetschef-i-Linkping_REQ_47090", "error": "HTTP 429", "ts": "2026-11-16T13:39:52Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Stockholm---Jrflla/Manager-for-Product-HW_REQ_47223", "error": "HTTP 429", "ts": "2026-11-16T13:40:27Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Combitech_careers/job/Bromma---Gustavslundsvgen-42/Senior-Management-Consultant_REQ_46740-2", "error": "HTTP 429", "ts": "2026-11-16T13:40:29Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Combitech_careers/job/Bromma---Gustavslundsvgen-42/Testautomatiserare_REQ_46792-2", "error": "HTTP 429", "ts": "2026-11-16T13:41:06Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Stockholm---Jrflla/Manger-for-ILS_REQ_47226", "error": "HTTP 429", "ts": "2026-11-16T13:41:07Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Stockholm---Solna/IT-Director--Business-Unit-Fighter-Core-Capabilities_REQ_47290", "error": "HTTP 429", "ts": "2026-11-16T13:41:40Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Combitech_careers/job/Vxj---Ljungadalsgatan-2B/Service-Delivery-Manager-till-vr-SOC_REQ_46833", "error": "HTTP 429", "ts": "2026-11-16T13:42:13Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Linkping---Brderna-Ugglas-Gata/Omrdeschef-Flygprov---Led-framtidens-struktur--och-miljprovning_REQ_47213", "error": "HTTP 429", "ts": "2026-11-16T13:42:15Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Combitech_careers/job/Gteborg/AI---Data-Solution-Engineer_REQ_46841", "error": "HTTP 429", "ts": "2026-11-16T13:42:45Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Karlskoga---Boforsvgen-1/Frvandla-din-passion-fr-mjukvara-till-verklighet---bli-en-del-av-oss-_REQ_24872", "error": "HTTP 429", "ts": "2026-11-16T13:43:16Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Combitech_careers/job/Bromma---Gustavslundsvgen-42/Affrsomrdeschef-Secure-Business---Division-Cyber-Security_REQ_46806", "error": "HTTP 429", "ts": "2026-11-16T13:43:18Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Linkping---Gelbgjutaregatan-2/Systemingenjr_REQ_47151", "error": "HTTP 429", "ts": "2026-11-16T13:43:49Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Combitech_careers/job/Jnkping---stra-Storgatan-3/Exjobb-p-Combitech-i-Jnkping---Next-Gen-Gate-Sensors_REQ_46178", "error": "HTTP 429", "ts": "2026-11-16T13:44:21Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Stockholm---Solna/Projektledare-Framtida-Sensorsystem_REQ_46944", "error": "HTTP 429", "ts": "2026-11-16T13:44:22Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Stockholm---Solna/Content-Producer_REQ_47202", "error": "HTTP 429", "ts": "2026-11-16T13:45:36Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Helsingborg---Garnisonsgatan-23-25/Examensarbete-15-hp--Dynamisk-modul--och-3D-modellshantering-fr-Naval-SE-_REQ_47337", "error": "HTTP 429", "ts": "2026-11-16T13:46:38Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Karlskrona---Styrmansgatan-1/Laserskrare-Vattenskrare-till-Saab-i-Karlskrona_REQ_47239", "error": "HTTP 429", "ts": "2026-11-16T13:47:41Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Linkping---Wallenbergs-gata-7/ILS-Manager-within-Sensors--Underwater-Systems_REQ_47034", "error": "HTTP 429", "ts": "2026-11-16T13:48:13Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Gteborg/Systemansvarig-fr-GlobalEye_REQ_46448", "error": "HTTP 429", "ts": "2026-11-16T13:48:56Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Stockholm---Solna/Head-of-Product-Management_REQ_47252-1", "error": "HTTP 429", "ts": "2026-11-16T13:49:29Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Stockholm---Solna/Tv-seniora-profiler-till-vr-Software-Factory-satsning-i-Stockholm_REQ_46227", "error": "HTTP 429", "ts": "2026-11-16T13:50:24Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Stockholm---Solna/Head-of-Combat-Systems-Engineering_REQ_47255", "error": "HTTP 429", "ts": "2026-11-16T13:51:29Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Stockholm---Solna/Strategic-Purchaser-IT_REQ_47124", "error": "HTTP 429", "ts": "2026-11-16T13:52:21Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Linkping---Brderna-Ugglas-Gata/Business-Development-Production_REQ_46098-2", "error": "HTTP 429", "ts": "2026-11-16T13:52:58Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Linkping---Gelbgjutaregatan-2/Lagerarbetare-till-Saab_REQ_43611", "error": "HTTP 429", "ts": "2026-11-16T13:53:38Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Linkping---Brderna-Ugglas-Gata/Hrdvarutestare-till-Gripens-utvecklingssimulatorer_REQ_47072-1", "error": "HTTP 429", "ts": "2026-11-16T13:54:14Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Karlskoga---Dammbrovgen-7/Master-Thesis-30-HP--Self-Improving-AI-for-Automated-AI-Development_REQ_45342", "error": "HTTP 429", "ts": "2026-11-16T13:54:48Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Linkping---Brderna-Ugglas-Gata/Driven-ingenjr-skes-till-Flight-Data-and-Navigation-fr-utveckling-av-Gripen-E-F_REQ_44610", "error": "HTTP 429", "ts": "2026-11-16T13:55:28Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Gteborg/Systemkonstruktr-inom-RF_REQ_42273", "error": "HTTP 429", "ts": "2026-11-16T13:56:05Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Stockholm---Jrflla/Occupational-Health-and-Safety-Engineer-Specialist_REQ_46726", "error": "HTTP 429", "ts": "2026-11-16T13:56:42Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Landskrona---Profilgatan-23/Grovpltslagare_REQ_47143", "error": "HTTP 429", "ts": "2026-11-16T13:57:18Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Linkping---Brderna-Ugglas-Gata/System-Administrator-Windows_REQ_44576", "error": "HTTP 429", "ts": "2026-11-16T13:57:52Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/jobs", "error": "HTTP 429", "ts": "2026-11-16T13:58:29Z"}

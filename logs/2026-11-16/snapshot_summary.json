@@ -1,0 +1,50 @@
+{
+ "snapshot": "2026-11-16",
+ "listings": 7376,
+ "companies": 1261,
+ "by_source": {
+  "jobtech": 5445,
+  "teamtailor": 758,
+  "html": 602,
+  "ashby": 262,
+  "workday": 228,
+  "lever": 110,
+  "eightfold": 91,
+  "greenhouse": 44,
+  "deel": 31
+ },
+ "by_tier": {
+  "other": 3563,
+  "consultancy": 1265,
+  "mid": 890,
+  "public": 507,
+  "top": 469,
+  "scaleup": 380,
+  "recruiter": 302
+ },
+ "by_seniority": {
+  "mid": 4064,
+  "senior": 2654,
+  "junior": 468,
+  "thesis": 97,
+  "graduate": 71,
+  "intern": 22
+ },
+ "by_family": {
+  "other_eng": 1900,
+  "other": 1796,
+  "software": 723,
+  "it_ops": 597,
+  "pm_design": 565,
+  "platform": 474,
+  "ml_ai": 431,
+  "security": 198,
+  "embedded": 189,
+  "data": 160,
+  "qa": 95,
+  "backend": 87,
+  "fullstack": 84,
+  "frontend": 42,
+  "mobile": 35
+ }
+}
