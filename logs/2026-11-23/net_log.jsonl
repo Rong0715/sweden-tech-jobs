@@ -1,0 +1,64 @@
+{"kind": "robots_disallow", "url": "https://api.smartrecruiters.com/v1/companies/Ubisoft2/postings", "rule": "Disallow: /", "ts": "2026-11-23T15:52:46Z"}
+{"kind": "http_error", "url": "https://www.google.com/about/careers/applications/jobs/results/jobs/results/130964400117818054-software-engineering-manager-google-meet?location=Stockholm,+Sweden", "status": 404, "ts": "2026-11-23T15:52:59Z"}
+{"kind": "http_error", "url": "https://www.google.com/about/careers/applications/jobs/results/jobs/results/132757516751643334-data-cloud-sales-specialist-emea-north?location=Stockholm,+Sweden", "status": 404, "ts": "2026-11-23T15:53:00Z"}
+{"kind": "http_error", "url": "https://www.google.com/about/careers/applications/jobs/results/jobs/results/108032878234739398-field-sales-representative-enterprise-growth-google-cloud-english-swedish?location=Stockholm,+Sweden", "status": 404, "ts": "2026-11-23T15:53:01Z"}
+{"kind": "http_error", "url": "https://www.google.com/about/careers/applications/jobs/results/jobs/results/86733690079453894-student-researcher-2027?location=Stockholm,+Sweden", "status": 404, "ts": "2026-11-23T15:53:02Z"}
+{"kind": "http_error", "url": "https://www.google.com/about/careers/applications/jobs/results/jobs/results/132508376436220614-senior-sales-customer-engineer-workspace-gcp-nordics?location=Stockholm,+Sweden", "status": 404, "ts": "2026-11-23T15:53:03Z"}
+{"kind": "robots_disallow", "url": "https://polestar.teamtailor.com/jobs.rss", "rule": "Disallow: /", "ts": "2026-11-23T15:53:03Z"}
+{"kind": "http_error", "url": "https://www.google.com/about/careers/applications/jobs/results/jobs/results/124063727702942406-product-deployment-engineer-measurement-gtech-ads-northern-europe?location=Stockholm,+Sweden", "status": 404, "ts": "2026-11-23T15:53:04Z"}
+{"kind": "http_error", "url": "https://www.google.com/about/careers/applications/jobs/results/jobs/results/106347537362756294-data-cloud-sales-specialist-google-cloud-nordics?location=Stockholm,+Sweden", "status": 404, "ts": "2026-11-23T15:53:05Z"}
+{"kind": "http_error", "url": "https://www.google.com/about/careers/applications/jobs/results/jobs/results/121191495435723462-senior-software-engineer-google-meet-security?location=Stockholm,+Sweden", "status": 404, "ts": "2026-11-23T15:53:06Z"}
+{"kind": "robots_disallow", "url": "https://api.smartrecruiters.com/v1/companies/Visa/postings", "rule": "Disallow: /", "ts": "2026-11-23T15:53:06Z"}
+{"kind": "gave_up", "url": "https://nvidia.wd5.myworkdayjobs.com/wday/cxs/nvidia/NVIDIAExternalCareerSite/jobs", "error": "HTTP 429", "ts": "2026-11-23T15:53:28Z"}
+{"kind": "robots_disallow", "url": "https://hedvig.teamtailor.com/jobs.rss", "rule": "Disallow: /", "ts": "2026-11-23T15:53:31Z"}
+{"kind": "robots_disallow", "url": "https://voyado.teamtailor.com/jobs.rss", "rule": "Disallow: /", "ts": "2026-11-23T15:53:35Z"}
+{"kind": "robots_disallow", "url": "unknown", "rule": "robots.txt unreachable", "ts": "2026-11-23T15:53:37Z"}
+{"kind": "gave_up", "url": "https://workday.wd5.myworkdayjobs.com/wday/cxs/workday/Workday/jobs", "error": "HTTP 429", "ts": "2026-11-23T15:53:37Z"}
+{"kind": "gave_up", "url": "https://paypal.wd1.myworkdayjobs.com/wday/cxs/paypal/jobs/jobs", "error": "HTTP 429", "ts": "2026-11-23T15:53:37Z"}
+{"kind": "http_error", "url": "https://emp.jobylon.com/jobs/254157-heart-aerospace-senior-embedded-software-engineer-battery-systems/", "status": 404, "ts": "2026-11-23T15:53:39Z"}
+{"kind": "robots_disallow", "url": "https://careers-zenimax.icims.com/jobs/3043/senior-gameplay-programmer/job", "rule": "Disallow: /", "ts": "2026-11-23T15:53:39Z"}
+{"kind": "robots_disallow", "url": "unknown", "rule": "robots.txt unreachable", "ts": "2026-11-23T15:53:39Z"}
+{"kind": "http_error", "url": "https://careers.readly.com/jobs.rss", "status": 404, "ts": "2026-11-23T15:53:41Z"}
+{"kind": "http_error", "url": "https://api.lever.co/v0/postings/seb?mode=json", "status": 404, "ts": "2026-11-23T15:53:45Z"}
+{"kind": "http_error", "url": "https://trygghansa.teamtailor.com/jobs.rss", "status": 404, "ts": "2026-11-23T15:53:50Z"}
+{"kind": "gave_up", "url": "https://sonyglobal.wd1.myworkdayjobs.com/wday/cxs/sonyglobal/SonyGlobalCareers/jobs", "error": "HTTP 429", "ts": "2026-11-23T15:53:53Z"}
+{"kind": "http_error", "url": "https://sjobs.brassring.com/TGnewUI/Search/home/HomeWithPreLoad?partnerid=25872&siteid=5512", "status": 500, "ts": "2026-11-23T15:54:16Z"}
+{"kind": "gave_up", "url": "https://nasdaq.wd1.myworkdayjobs.com/wday/cxs/nasdaq/Global_External_Site/jobs", "error": "HTTP 429", "ts": "2026-11-23T15:54:19Z"}
+{"kind": "http_error", "url": "https://wd3.myworkdaysite.com/wday/cxs/wd3/Magna/jobs", "status": 422, "ts": "2026-11-23T15:54:20Z"}
+{"kind": "robots_disallow", "url": "https://career.cevt.se/jobs.rss", "rule": "robots.txt unreachable", "ts": "2026-11-23T15:54:21Z"}
+{"kind": "robots_disallow", "url": "https://api.smartrecruiters.com/v1/companies/HMGroup/postings", "rule": "Disallow: /", "ts": "2026-11-23T15:54:30Z"}
+{"kind": "gave_up", "url": "https://sandvik.wd3.myworkdayjobs.com/wday/cxs/sandvik/sandvik-jobs/jobs", "error": "HTTP 429", "ts": "2026-11-23T15:54:30Z"}
+{"kind": "robots_disallow", "url": "https://api.smartrecruiters.com/v1/companies/InterIKEAGroup/postings", "rule": "Disallow: /", "ts": "2026-11-23T15:54:30Z"}
+{"kind": "gave_up", "url": "https://husqvarnagroup.wd3.myworkdayjobs.com/wday/cxs/husqvarnagroup/External_Career_Site/jobs", "error": "HTTP 429", "ts": "2026-11-23T15:54:31Z"}
+{"kind": "gave_up", "url": "https://hitachi.wd1.myworkdayjobs.com/wday/cxs/hitachi/hitachi/jobs", "error": "HTTP 429", "ts": "2026-11-23T15:54:33Z"}
+{"kind": "http_error", "url": "https://emp.jobylon.com/companies/1304/", "status": 404, "ts": "2026-11-23T15:54:37Z"}
+{"kind": "http_error", "url": "https://www.axfood.se/jobba-hos-oss/", "status": 404, "ts": "2026-11-23T15:54:37Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/job/Stockholm---Solna/Mjukvaruutvecklare-i-C--_REQ_47588", "error": "HTTP 429", "ts": "2026-11-23T15:54:37Z"}
+{"kind": "http_error", "url": "https://www.bonniernews.se/jobba-hos-oss", "status": 404, "ts": "2026-11-23T15:54:39Z"}
+{"kind": "http_error", "url": "https://api.eu.lever.co/v0/postings/avalanchestudios?mode=json", "status": 404, "ts": "2026-11-23T15:54:41Z"}
+{"kind": "robots_disallow", "url": "https://career.thunderfulgames.com/jobs.rss", "rule": "robots.txt unreachable", "ts": "2026-11-23T15:54:43Z"}
+{"kind": "robots_disallow", "url": "https://raysearchlabs.workbuster.com/", "rule": "robots.txt unreachable", "ts": "2026-11-23T15:54:48Z"}
+{"kind": "http_error", "url": "https://emp.jobylon.com/jobs/380378-remedy-entertainment-senior-gameplay-animator/%7B$%20url%20$%7D", "status": 404, "ts": "2026-11-23T15:54:48Z"}
+{"kind": "http_error", "url": "https://medical.sectra.com/about-sectra/careers/", "status": 404, "ts": "2026-11-23T15:54:50Z"}
+{"kind": "http_error", "url": "https://careers.eon.com/sverige/", "status": 403, "ts": "2026-11-23T15:54:54Z"}
+{"kind": "http_error", "url": "https://www.postnord.com/job-vacancies/", "status": 404, "ts": "2026-11-23T15:54:56Z"}
+{"kind": "robots_disallow", "url": "https://careersweden.knowit.se/jobs.rss", "rule": "Disallow: /", "ts": "2026-11-23T15:54:58Z"}
+{"kind": "http_error", "url": "https://www.visma.com/careers/open-positions/jobs.rss", "status": 404, "ts": "2026-11-23T15:54:58Z"}
+{"kind": "robots_disallow", "url": "https://career.hiq.se/jobs.rss", "rule": "Disallow: /", "ts": "2026-11-23T15:54:59Z"}
+{"kind": "http_error", "url": "https://careers.tieto.com/sweden", "status": 404, "ts": "2026-11-23T15:55:02Z"}
+{"kind": "robots_disallow", "url": "https://api.smartrecruiters.com/v1/companies/AFRY/postings", "rule": "Disallow: /", "ts": "2026-11-23T15:55:03Z"}
+{"kind": "http_error", "url": "https://www.alten.se/career/", "status": 403, "ts": "2026-11-23T15:55:06Z"}
+{"kind": "http_error", "url": "https://emp.jobylon.com/jobs/%20(company%20feed;%20slug%20pattern%20%3Cid%3E-etteplan-%3Ctitle%3E)", "status": 404, "ts": "2026-11-23T15:55:13Z"}
+{"kind": "bad_rss", "url": "career.truesec.com", "ts": "2026-11-23T15:55:16Z"}
+{"kind": "http_error", "url": "https://tretton37.teamtailor.com/jobs.rss", "status": 404, "ts": "2026-11-23T15:55:18Z"}
+{"kind": "robots_disallow", "url": "https://api.smartrecruiters.com/v1/companies/Devoteam/postings", "rule": "Disallow: /", "ts": "2026-11-23T15:55:20Z"}
+{"kind": "robots_disallow", "url": "https://career.ri.se/jobs.rss", "rule": "Disallow: /", "ts": "2026-11-23T15:55:21Z"}
+{"kind": "gave_up", "url": "https://elekta.wd3.myworkdayjobs.com/wday/cxs/elekta/Elekta_Careers/jobs", "error": "HTTP 429", "ts": "2026-11-23T15:55:22Z"}
+{"kind": "robots_disallow", "url": "https://recruit.visma.com/External/OJCustomer3/AssignmentList.aspx?guidExtSoftware=194e0a26-3142-4c3b-970b-985327b3523f", "rule": "Disallow: /", "ts": "2026-11-23T15:55:22Z"}
+{"kind": "gave_up", "url": "https://accenture.wd103.myworkdayjobs.com/wday/cxs/accenture/AccentureCareers/jobs", "error": "HTTP 429", "ts": "2026-11-23T15:55:41Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Saab_careers/jobs", "error": "HTTP 429", "ts": "2026-11-23T15:55:45Z"}
+{"kind": "http_error", "url": "https://web103.reachmee.com/ext/I007/497/main?site=2&lang=SE", "status": 404, "ts": "2026-11-23T15:55:46Z"}
+{"kind": "gave_up", "url": "https://saabgroup.wd116.myworkdayjobs.com/wday/cxs/saabgroup/Combitech_careers/jobs", "error": "HTTP 429", "ts": "2026-11-23T15:55:49Z"}
+{"kind": "http_error", "url": "https://www.lantmateriet.se/sv/om-lantmateriet/jobba-hos-oss/lediga-jobb/%7B%7BUrl%7D%7D", "status": 404, "ts": "2026-11-23T15:56:09Z"}
+{"kind": "http_error", "url": "https://web103.reachmee.com/ext/I011/853/main?site=6&lang=SE", "status": 404, "ts": "2026-11-23T15:56:11Z"}
+{"kind": "robots_disallow", "url": "https://careers.finshark.io/jobs", "rule": "robots.txt unreachable", "ts": "2026-11-23T15:56:31Z"}
